@@ -360,8 +360,9 @@ body[data-lang="en"] span[lang="el"] { display: none; }
    reflows and hyphenates correctly with the rest of justified text
    instead of drifting away from its letter on line breaks. */
 .brv{
-  font-size: .62em;
-  vertical-align: .48em;
+  font-size: .52em;
+  vertical-align: .58em;
   line-height: 0;
-  margin-left: -.06em;
+  margin-left: -.5em;
+  margin-right: .02em;
 }
