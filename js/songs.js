@@ -1,4 +1,3 @@
-
 (function(){
   "use strict";
   var DATA = window.__ALBUM_DATA__;

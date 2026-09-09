@@ -220,7 +220,16 @@ main.wide { max-width: var(--max-width-wide); }
   padding-right: 1.1rem;
   max-height: calc(100vh - 110px);
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--paper-line) transparent;
 }
+.songs-nav::-webkit-scrollbar{ width: 6px; }
+.songs-nav::-webkit-scrollbar-track{ background: transparent; }
+.songs-nav::-webkit-scrollbar-thumb{
+  background: var(--paper-line);
+  border-radius: 10px;
+}
+.songs-nav:hover::-webkit-scrollbar-thumb{ background: var(--ink-faint); }
 .songs-nav ol{ list-style: none; margin: 0; padding: 0; }
 .songs-nav a{
   display: flex; gap: .6rem; align-items: baseline;
