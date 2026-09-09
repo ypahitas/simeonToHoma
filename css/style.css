@@ -275,7 +275,7 @@ main.wide { max-width: var(--max-width-wide); }
   margin-top: 2rem; font-size: 1.02rem; font-weight: 700;
   border-bottom: 1px solid var(--paper-line); padding-bottom: 5px;
 }
-.song-body sup.fn{ color: var(--wine); cursor: pointer; font-size: .72em; padding: 0 1px; }
+.song-body sup.fn, .intro-note sup.fn{ color: var(--wine); cursor: pointer; font-size: .72em; padding: 0 1px; }
 .sources-block{
   margin-top: 1.8rem; padding-top: 1rem; border-top: 1px dashed var(--paper-line);
   font-size: .82rem; color: var(--ink-faint);

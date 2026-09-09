@@ -43,4 +43,33 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // Footnotes on static pages (e.g. the intro note on index.html).
+  // songs.html has its own, richer footnote system in songs.js driven
+  // by the embedded JSON data; this is the lightweight equivalent for
+  // hardcoded prose pages, which only ever need a small, fixed set of
+  // notes.
+  var STATIC_FOOTNOTES = {
+    el: { "1": "Δαμαί εννοώ τζ\u0306αι τον καλοφωνάρη τραγουδιστή με την κλασσική έννοια αλλά τζ\u0306αι κάποιον όι απαραίτητα καλλίφωνον: (α) που τσ\u0306αττίζει, δηλ. λέει αυτοσχέδιους στίχους «του καφκά» τζ\u0306αι «παλιώννει» με άλλον τραουδιστήν ή/τζ\u0306αι (β) συνθέτει τζ\u0306αι λέει ερωτικά δίστιχα ή ολιγόστιχα." },
+    en: { "1": "Here I mean both the fine-voiced singer in the classical sense, and also someone who: (a) tsattizes, i.e. recites improvised verses \u201cout of the blue\u201d and \u2018spars\u2019 with another singer, and/or (b) composes and recites improvised love couplets or short verses." }
+  };
+  var fnPanel = document.getElementById("fn-panel");
+  if (fnPanel) {
+    var fnPanelNum = document.getElementById("fn-panel-num");
+    var fnPanelText = document.getElementById("fn-panel-text");
+    document.addEventListener("click", function (e) {
+      var trigger = e.target.closest ? e.target.closest("sup.fn[data-fn]") : null;
+      if (!trigger) return;
+      var n = trigger.getAttribute("data-fn");
+      var lang = body.getAttribute("data-lang") === "en" ? "en" : "el";
+      var text = (STATIC_FOOTNOTES[lang] && STATIC_FOOTNOTES[lang][n]) || (STATIC_FOOTNOTES.el && STATIC_FOOTNOTES.el[n]) || "";
+      fnPanelNum.textContent = n;
+      fnPanelText.textContent = text;
+      fnPanel.classList.add("show");
+    });
+    var fnPanelClose = document.getElementById("fn-panel-close");
+    if (fnPanelClose) {
+      fnPanelClose.addEventListener("click", function () { fnPanel.classList.remove("show"); });
+    }
+  }
 });
