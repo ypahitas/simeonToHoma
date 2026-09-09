@@ -26,14 +26,14 @@ body {
   overflow-x: hidden; /* guards against the 100vw break-out in .intro-note */
   background: var(--paper);
   color: var(--ink);
-  font-family: "Newsreader", "Noto Serif", Georgia, serif;
+  font-family: "Gentium Plus", "Newsreader", Georgia, serif;
   font-size: 18px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, .brand {
-  font-family: "Fraunces", "Noto Serif", Georgia, serif;
+  font-family: "Gentium Plus", "Fraunces", Georgia, serif;
   font-weight: 600;
   color: var(--ink);
   line-height: 1.2;
@@ -91,7 +91,7 @@ nav.main-nav a[aria-current="page"] {
 }
 
 .lang-toggle {
-  font-family: "Newsreader", "Noto Serif", Georgia, serif;
+  font-family: "Gentium Plus", "Newsreader", Georgia, serif;
   font-size: 0.9rem;
   background: transparent;
   border: 1px solid var(--sage);
@@ -142,12 +142,12 @@ main.wide { max-width: var(--max-width-wide); }
 }
 .cover-art{ width:100%; height:100%; object-fit:cover; display:block; }
 .cover-caption{
-  font-family: "Newsreader", "Noto Serif", serif; font-style: italic;
+  font-family: "Gentium Plus", "Newsreader", serif; font-style: italic;
   font-size: .85rem; color: var(--ink-faint);
   margin: 14px 0 0;
 }
 .hero-artist{
-  font-family: "Fraunces", "Noto Serif", serif; font-size: 1.1rem; font-weight: 600;
+  font-family: "Gentium Plus", "Fraunces", serif; font-size: 1.1rem; font-weight: 600;
   color: var(--ink-soft); margin: 6px 0 0;
 }
 .hero .eyebrow-rule { margin-left: auto; margin-right: auto; }
@@ -166,10 +166,10 @@ main.wide { max-width: var(--max-width-wide); }
 }
 .intro-note h2 { text-align: center; }
 .intro-note p { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
-.signoff{ font-family: "Fraunces", "Noto Serif", serif; font-style: italic; font-size: 1.1rem; margin-top: .4rem; }
+.signoff{ font-family: "Gentium Plus", "Fraunces", serif; font-style: italic; font-size: 1.1rem; margin-top: .4rem; }
 .note-cta { margin-top: 2.2rem; text-align: center; }
 .btn{
-  font-family: "Newsreader", "Noto Serif", serif; font-size: .95rem; font-weight: 600;
+  font-family: "Gentium Plus", "Newsreader", serif; font-size: .95rem; font-weight: 600;
   border: 1px solid var(--ink); border-radius: 30px;
   padding: 10px 26px; display: inline-block; color: var(--ink);
 }
@@ -195,10 +195,10 @@ main.wide { max-width: var(--max-width-wide); }
   margin-top: 0.15rem;
 }
 .contributors .contrib-name{
-  font-family: "Fraunces", "Noto Serif", serif; font-size: 1.05rem; font-weight: 600;
+  font-family: "Gentium Plus", "Fraunces", serif; font-size: 1.05rem; font-weight: 600;
 }
 .contrib-group-label{
-  font-family: "Newsreader", "Noto Serif", serif; font-style: italic;
+  font-family: "Gentium Plus", "Newsreader", serif; font-style: italic;
   color: var(--ink-faint); font-size: .9rem; margin: 2.4rem 0 0;
 }
 .contrib-group-label:first-of-type{ margin-top: 0; }
@@ -228,7 +228,7 @@ main.wide { max-width: var(--max-width-wide); }
   font-size: .95rem; color: var(--ink-soft);
   border-bottom: none;
 }
-.songs-nav a .num{ font-family: "Fraunces", "Noto Serif", serif; font-size: .82rem; color: var(--ink-faint); width: 1.3em; flex-shrink: 0; }
+.songs-nav a .num{ font-family: "Gentium Plus", "Fraunces", serif; font-size: .82rem; color: var(--ink-faint); width: 1.3em; flex-shrink: 0; }
 .songs-nav a:hover{ color: var(--ink); border-bottom: none; }
 .songs-nav a.active{ color: var(--wine); font-weight: 600; }
 .songs-nav a.active .num{ color: var(--wine); }
@@ -267,7 +267,7 @@ main.wide { max-width: var(--max-width-wide); }
 .song-body blockquote{
   margin: 1.3rem 0; padding: 4px 0 4px 18px;
   border-left: 2px solid var(--wine);
-  font-family: "Fraunces", "Noto Serif", serif; font-style: italic;
+  font-family: "Gentium Plus", "Fraunces", serif; font-style: italic;
   font-size: 1.08rem; color: var(--wine-deep); line-height: 1.55;
 }
 .song-body blockquote div{ margin: 0; }
@@ -293,14 +293,14 @@ main.wide { max-width: var(--max-width-wide); }
 }
 #fn-panel.show{ display: block; }
 #fn-panel .fn-head{ display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-#fn-panel .fn-head b{ font-family: "Fraunces", "Noto Serif", serif; font-size: 1.02rem; }
+#fn-panel .fn-head b{ font-family: "Gentium Plus", "Fraunces", serif; font-size: 1.02rem; }
 #fn-panel button.close{ background: none; border: none; font-size: 1rem; cursor: pointer; color: var(--ink-faint); }
 #fn-panel .fn-text{ color: var(--ink-soft); line-height: 1.5; }
 
 /* ---- Contact ---- */
 .contact-email {
   font-size: 1.3rem;
-  font-family: "Fraunces", "Noto Serif", Georgia, serif;
+  font-family: "Gentium Plus", "Fraunces", Georgia, serif;
 }
 
 /* ---- Footer ---- */
