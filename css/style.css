@@ -352,3 +352,16 @@ body[data-lang="en"] span[lang="el"] { display: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* ---- Combining breve (U+0306) on Cypriot-dialect consonants ----------
+   Marks a dialectal sound on σ/ζ, a combination no Greek font has
+   anchor data for (standard Greek only ever marks vowels this way).
+   Nudged with plain, in-flow CSS rather than position:absolute, so it
+   reflows and hyphenates correctly with the rest of justified text
+   instead of drifting away from its letter on line breaks. */
+.brv{
+  font-size: .62em;
+  vertical-align: .48em;
+  line-height: 0;
+  margin-left: -.06em;
+}

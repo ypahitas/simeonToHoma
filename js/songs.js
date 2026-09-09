@@ -40,10 +40,22 @@
       return '<sup class="fn" data-fn="'+n+'" tabindex="0" role="button" aria-label="footnote '+n+'">'+n+'</sup>';
     });
   }
-  // The combining breve is left as plain text (see the @font-face
-  // unicode-range override in style.css) — no wrapping needed here.
-  function rich(s){ return escapeHtml(s); }
-  function richBody(s){ return linkifyFootnotes(escapeHtml(s)); }
+  // The combining breve (U+0306) marks a Cypriot-dialect sound on
+  // consonants (σ̆, ζ̆) — a combination no Greek font, however good,
+  // has anchor data for, since standard Greek only ever marks vowels
+  // this way. We can't rely on font shaping to place it, so we nudge
+  // it with plain, in-flow CSS (shrink + vertical-align) rather than
+  // position:absolute — absolute positioning was tried before and
+  // broke once these justified, hyphenated paragraphs reflowed, since
+  // it takes the mark out of normal text flow. vertical-align never
+  // leaves that flow, so it reflows and hyphenates safely along with
+  // everything else. Must run on already-escaped text so the regex
+  // only ever matches plain characters, not markup.
+  function stackBreves(escapedText){
+    return escapedText.replace(/\u0306/g, '<span class="brv">\u0306</span>');
+  }
+  function rich(s){ return stackBreves(escapeHtml(s)); }
+  function richBody(s){ return linkifyFootnotes(stackBreves(escapeHtml(s))); }
 
   function renderParas(container, bodyItems){
     bodyItems.forEach(function(item){
