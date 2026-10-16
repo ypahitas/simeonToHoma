@@ -65,6 +65,17 @@ html[data-lang="en"] .lyrics[lang="el"]{display:block!important}
   .nav.open{display:flex}
   .nav a{padding:.85rem 1.25rem;border-top:1px solid var(--rule)}
 }
+/* once the cover has scrolled away, the bar takes the cover's ochre (set by js/site.js) */
+.bar{transition:background-color .3s ease,border-color .3s ease}
+.bar.solid{background:var(--ochre);border-bottom-color:var(--ochre);color:var(--cream)}
+.bar.solid .mark,.bar.solid .lang,.bar.solid .menu{color:var(--cream)}
+.bar.solid .nav a:hover{color:var(--sun)}
+.bar.solid .lang:hover{background:var(--cream);color:var(--ochre)}
+@media (max-width:760px){
+  .bar.solid .nav{background:var(--ochre);border-bottom-color:var(--ochre)}
+  .bar.solid .nav a{border-top-color:rgba(239,229,216,.35)}
+}
+@media (prefers-reduced-motion:reduce){.bar{transition:none}}
 
 /* running head, like the booklet's margin */
 .rail{display:none;position:fixed;left:1.1rem;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:center;

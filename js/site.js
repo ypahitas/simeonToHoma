@@ -10,6 +10,21 @@
     try { localStorage.setItem('site-lang', next); } catch(e) { /* storage unavailable */ }
   });
 
+  // The bar turns ochre once the cover has scrolled up under it. On a song
+  // page the cover is hidden, so the bar is ochre there from the start.
+  var bar = document.querySelector('.bar'), hero = document.querySelector('.hero');
+  if (bar && hero) {
+    var updateBar = function(){
+      var r = hero.getBoundingClientRect();   // all zero while the cover is hidden
+      bar.classList.toggle('solid', r.height === 0 || r.bottom <= bar.offsetHeight);
+    };
+    window.addEventListener('scroll', updateBar, { passive: true });
+    window.addEventListener('resize', updateBar);
+    // after songs.js has shown or hidden the cover for the current #hash
+    window.addEventListener('hashchange', function(){ setTimeout(updateBar, 0); });
+    setTimeout(updateBar, 0);
+  }
+
   // Mobile menu
   var menu = document.getElementById('menu'), nav = document.getElementById('nav');
   if (menu && nav) {

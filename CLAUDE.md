@@ -16,7 +16,7 @@ This file is the handoff for any new Claude session. Read it before changing any
 
 - `js/album-data.js`: all album text as `window.__ALBUM_DATA__` (`meta`, `el`, `en`, `footnotes`, `lyrics`). Song bodies are lists of `p`, `heading`, `verse` and `source` items; the English songs keep their sources in a separate `sources` list. Footnotes appear as `[^N]` in the text (Greek only; the English has no markers). `lyrics` maps a song id to stanzas (lists of lines), shown in Greek in both languages.
 - `js/songs.js`: builds the song index and all 17 song articles from that data, with both languages in the DOM, and handles routing (`#song-N` or `#song-N-fnM` shows that song; anything else shows the main page). Footnotes are listed under each song and linked from the superscripts.
-- `js/site.js`: language toggle (`html[data-lang]`, saved in localStorage as `site-lang`, default `el`; the inline script in `index.html` sets it before first paint, and `?lang=en` also works) and the mobile menu.
+- `js/site.js`: language toggle (`html[data-lang]`, saved in localStorage as `site-lang`, default `el`; the inline script in `index.html` sets it before first paint, and `?lang=en` also works), the mobile menu, and the header colour: `.bar.solid` (ochre, cream text) is set by a scroll check once the cover has gone under the bar, and always on song pages.
 - The intro note, its footnote, contributors and contact are static HTML in `index.html`.
 - Bilingual text uses paired `lang="el"` and `lang="en"` elements, toggled by the rules at the top of `css/style.css`. `.lyrics[lang="el"]` is exempt, so lyrics show in English mode too.
 
