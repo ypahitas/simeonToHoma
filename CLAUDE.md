@@ -8,10 +8,9 @@ This file is the handoff for any new Claude session. Read it before changing any
 
 - **Names.** In English: **Simon Mercouris** and **To Homan**. In Greek: **Συμεών Μερκούρης** and **Το χώμαν** (lowercase χ). Never use "Symeon Merkouris" or "The Soil" as the title. The cover itself says "soil", which is fine.
 - **Text is final-ish and owned by the artist.** Greek comes from the Word file `Κείμενα Δίσκου «Το χώμαν» (ΝΔ - ΣΜ) 01-09-26.docx`, written in Cypriot dialect; keep it verbatim. The English is Claude's translation, already reviewed in places. Don't rewrite either one unless asked.
-- **Layout is a single page** (chosen by the owner on 16 Oct, replacing the old 4-page site): `index.html` has a sticky bar, the ochre cover band, "Ο δίσκος" (intro note plus an artists column), the two-column song index, the song reader (one song at a time, routed by `#song-N`, credits in a sticky left column, notes and sources under the text), "Συνεργάτες" and "Επικοινωνία". Keep it. It is based on the designer-matched prototype `index-singlefile.html` (kept outside the repo), with its Google font, base64 images, "Symeon" names, and its own copy and translation removed.
+- **Layout is a single page** (chosen by the owner on 16 Oct, replacing the old 4-page site): `index.html` has a sticky bar, the ochre cover band, "Ο δίσκος" (intro note plus an artists column), the two-column song index, the song reader (one song at a time, routed by `#song-N`, credits in a sticky left column, notes and sources under the text), "Συντελεστές" and "Επικοινωνία". Keep it. It is based on the designer-matched prototype `index-singlefile.html` (kept outside the repo), with its Google font, base64 images, "Symeon" names, and its own copy and translation removed.
 - `songs.html`, `contributors.html` and `contact.html` are now only redirects to `index.html#…` (keeping the hash), so old links keep working.
 - **Contact email:** simon.mercouris@gmail.com
-- `indexTemplate2.html` is an old single-page template, kept for reference only.
 
 ## How the code works
 

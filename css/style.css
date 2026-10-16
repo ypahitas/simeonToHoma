@@ -77,9 +77,6 @@ html[data-lang="en"] .lyrics[lang="el"]{display:block!important}
 .cover{width:100%;margin:0 auto;animation:rise 1.4s ease-out both}
 @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-.hero .go{display:inline-block;margin-top:1.4rem;padding:.55rem 1.4rem;border-radius:999px;
-  background:var(--soil);color:var(--cream);text-decoration:none;font-weight:700}
-.hero .go:hover{background:#2a1700}
 @media (prefers-reduced-motion:reduce){.cover{animation:none}}
 
 /* ---------- page sections ---------- */
