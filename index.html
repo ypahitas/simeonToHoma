@@ -1,74 +1,136 @@
 <!doctype html>
-<html lang="el">
+<html lang="el" data-lang="el">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Το χώμαν — Συμεών Μερκούρης</title>
-<meta name="description" content="Το χώμαν (To Homan) — δεκαεφτά κομμάτια εμπνευσμένα από ερμηνείες κυπριακών παραδοσιακών τραουθκιών.">
+<meta name="description" content="Το χώμαν: παραδοσιακά τραγούδια της Κύπρου. To Homan: traditional songs of Cyprus by Simon Mercouris and Stelios Papamichael.">
 <link rel="preload" href="fonts/alegreya-choman-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
+<script>
+  // Set the language before first paint, so the page doesn't flash in the wrong one.
+  (function(){
+    var root=document.documentElement, l=null;
+    root.classList.add('js');
+    try{ l=new URLSearchParams(location.search).get('lang') || localStorage.getItem('site-lang'); }catch(e){}
+    if(l==='en'||l==='el'){ root.setAttribute('data-lang',l); root.lang=l; }
+  })();
+</script>
 </head>
-<body data-lang="el">
+<body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <p class="brand"><a href="index.html"><span lang="el">Το χώμαν</span><span lang="en">To Homan</span></a></p>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
-    <nav class="main-nav">
-      <a href="index.html" aria-current="page"><span lang="el">Αρχική</span><span lang="en">Home</span></a>
-      <a href="contributors.html"><span lang="el">Συνεργάτες</span><span lang="en">Contributors</span></a>
-      <a href="songs.html"><span lang="el">Τραγούδια</span><span lang="en">Songs</span></a>
-      <a href="contact.html"><span lang="el">Επικοινωνία</span><span lang="en">Contact</span></a>
-      <button class="lang-toggle" type="button">EL</button>
+<header class="bar">
+  <div class="bar-in">
+    <a class="mark" href="#top"><span lang="el">Το χώμαν</span><span lang="en">To Homan</span></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#album"><span lang="el">Ο δίσκος</span><span lang="en">The album</span></a>
+      <a href="#songs"><span lang="el">Τραγούδια</span><span lang="en">Songs</span></a>
+      <a href="#contributors"><span lang="el">Συνεργάτες</span><span lang="en">Contributors</span></a>
+      <a href="#contact"><span lang="el">Επικοινωνία</span><span lang="en">Contact</span></a>
     </nav>
+    <button class="lang" id="lang" type="button"><span lang="el" aria-label="Switch to English">EN</span><span lang="en" aria-label="Ανάγνωση στα ελληνικά">ΕΛ</span></button>
+    <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
   </div>
 </header>
+<div class="rail" aria-hidden="true">το χώμαν</div>
 
-<main class="hero">
-  <h1 lang="en">To Homan</h1>
-  <h1 lang="el">Το χώμαν</h1>
+<main id="top">
+  <div class="page">
+    <section class="hero">
+      <div class="hero-in">
+        <h1 class="cover-title">
+          <img class="cover" src="images/cover.jpg" width="1400" height="1689"
+               alt="Το χώμαν · soil — Συμεών Μερκούρης, Στέλιος Παπαμιχαήλ">
+        </h1>
+        <a class="go" href="#songs"><span lang="el">Δείτε τα τραγούδια</span><span lang="en">Browse the songs</span></a>
+      </div>
+    </section>
 
-  <div class="cover-frame">
-    <img class="cover-art" src="images/cover.jpg" width="1400" height="1689" alt="Το χώμαν · soil — Συμεών Μερκούρης, Στέλιος Παπαμιχαήλ">
+    <section class="sec" id="album">
+      <span class="orn a" aria-hidden="true"></span>
+      <h2><span lang="el">Ο δίσκος</span><span lang="en">The album</span></h2>
+      <div class="cols">
+        <div class="prose">
+          <h3><span lang="el">Εισαγωγικό σημείωμα</span><span lang="en">Introductory note</span></h3>
+          <p lang="el">Έμπνευση μου για τον δίσκον «Το χώμαν» εν κάποιες ερμηνείες κυπριακών παραδοσιακών τραουθκιών που άκουσα που «πραχτικούς», δηλαδή χωρίς τυπικήν μουσικήν εκπαίδευσην, μουσικούς τζ̆αι τραουδιστές<sup class="fn"><a href="#intro-fn1" aria-label="note 1">1</a></sup>. Στην πλειοψηφία τους εδραστηριοποιηθήκαν στο πρώτο μισό του 20ου αιώνα. Γράφω πιο κάτω στες σημειώσεις για κάθε κομμάτιν του δίσκου ποιοι εν τούτοι τζ̆αι το αρχείο που τους άκουσα. Στες σημειώσεις συμπεριλαβάνω επίσης, όπου εθεώρησα σωστό, σχολιασμόν για το κομμάτιν το ίδιο (π.χ. πόθεν έπιαεν το όνομαν του) τζ̆αι το πως επρόσεγγισα την ερμηνεία, διασκεύη/ανασύνθεση τζ̆αι ενορχήστρωση του.</p>
+          <p lang="el">Εχτός όμως που μια σύντομη βιογραφία για τον κάθε ένα που τους μουσικούς τζ̆αι  τραουδιστές που εχρησιμοποίησα ως αναφορά, θα βρείτε τζ̆αι κάποιες που τες ιστορίες τους που εμοιραστήκαν μαζί μου οι ίδιοι, αν ήταν εν ζωή, ή οι επιζώντες συγγενείς τους. Στην αρχή, εξεκίνησα να ψάχνω πληροφορίες για την ζωή τούντων βιωματικών μουσικών τζ̆αι τραουδιστών καθαρά για δική μου ενημέρωση. Εθεώρησα ότι αν ήταν να διασκεύασω, ανασυνθέσω ή ερμηνεύσω κάτι με τούντους αθρώπους ως αναφορά, την ερμηνεία ή τον στίχο τους, έπρεπε να μάθω ότι μπόρω για τζ̆είνους. Εγύρεψα τους ίδιους, αν εζούσαν, ή τα παιθκιά, αγγόνια, αδερφοτέχνια τους, αν όι, για να τους κάμω συνέντευξη. Σύνολο εκουβέντιασα με δεκαενιά συνεντευξιαζόμενους σε Λευκωσία, Παραλίμνι, Λιοπέτρι, Αυκόρου, Δερύνεια, Ξυλοφάου, Λεμεσό, Έμπα τζ̆αι Γιόλου. Ενώ εξεκίνησα έχοντας μες τον νου μου συγκεκριμένες ερωτήσεις που έθελα να κάμω, η συνέντευξη συνήθως εκατέληγε σε μιαν όμορφη κουβέντα που έρεε που μόνη της. Έμαθα ιστορίες για την ζωή τούντων μουσικών τζ̆αι τραουδιστών που εδράσαν σε μια καθημερινότητα πολλά διαφορετικήν, απ’ ότι την ξέρει η γενιά μου τουλάχιστον. Επίσης επροσπάθησα να μαζέψω μαρτυρίες που αφορούσαν την τέχνη τους που επρωταγωνιστούσε σε χαρές, χαζ̆ια τζ̆αι ζιαφέθκια αλλά είσ̆εν επίσης ξεχωριστή θέση τζ̆αι στα μαράζ̆ια τζ̆αι τες θλίψεις.</p>
+          <p lang="el">Εκ πρώτης όψεως κάποιος μπορεί να πει ότι οι ιστορίες που παραθέτω στες σημειώσεις κάθε κομμάθκιού εν έχουν να κάμουν τίποτε με το κομμάτι που παρουσιάζεται. Συγκεντρώνοντας όμως σιγά σιγά τούντες ιστορίες, αντιλήφθηκα ότι εσταμάτησε πλέον η έρευνα μου να εν παρεμφερής στον δίσκο τζ̆αι καθαρά για δίκην μου προσωπική ενημέρωση, αλλά εξεκίνησεν να αποχτά αυτοτελήν σημασίαν τζ̆αι για τον ακροατή του δίσκου. Όπως η ερμηνεία σε ένα παραδοσιακό τραούδιν, ιδίως ενός σύγχρονου μουσικού, ενημερώνεται που τες πληροφορίες, βιογραφικές τζ̆αι μη, που κάτεχει για την αναφορά του έτσι, πιστεύκω, τζ̆αι ο σύγχρονος ακροατής που θα ακούσει τόυντον δίσκον θα τον εννοήσει καλλίττερα θκιεβάζοντας τες ιστορίες που εσυμπεριέλαβα για κάθε κομμάτι. Θα ανοίξει έναν παράθυρο σε μιαν Κύπρο άλλης εποχής με πρωταγωνιστές τους ίδιους τους μουσικούς τζ̆αι τραουδιστές.</p>
+          <p lang="el">Το μεγάλον στοίχημαν για εμένα τότε γίνεται: αφού ποσ̆επάσει ο αναγνώστης μέσα που τούντο παραθύριν, να αφεθεί σαν ακροατής τζ̆αι να ακούσει τόυντην μουσική όπως την εκαταλάβαμεν εμείς τζ̆αι ηχογραφήσαμε το 2026, με μουσικούς, ως επί το πλείστον, γέννημαν των δεκαετιών του ‘80  τζ̆αι του ‘90. Αν καταφέρουμε να τον συγκινήσουμεν τότε εκαταφέραμεν να παρουσιάσουμε τούντα δεκαεφτά κομμάθκια όι ως μουσικά κειμήλια αλλά ως ζώσαν παράδοση σχετική στο σήμερα.</p>
+          <p lang="en">My inspiration for the album "To Homan" came from interpretations of Cypriot traditional songs I heard performed by "practical" musicians and singers<sup class="fn"><a href="#intro-fn1-en" aria-label="note 1">1</a></sup> — that is, without formal musical training — most of whom were active in the first half of the 20th century. In the notes for each track below, I explain who these performers were and where I found the recordings I used as my reference. Where I felt it was useful, I have also included commentary on the piece itself (for instance, where its title comes from) and on how I approached its interpretation, arrangement/recomposition and orchestration.</p>
+          <p lang="en">Beyond a short biography of each of the musicians and singers I used as a reference, you will also find some of the stories they shared with me themselves, if they were alive, or their surviving relatives shared. At first, I began researching the lives of these musicians and singers purely for my own understanding. I felt that if I was going to arrange, recompose or interpret something using these people, their performance or their verses as my reference, I needed to learn what I could about them. I sought out the performers themselves, where they were still living, or their children, grandchildren or fellow musicians, where they were not, in order to interview them. In total I spoke with nineteen interviewees in Nicosia, Paralimni, Liopetri, Avgorou, Deryneia, Xylofagou, Limassol, Empa and Yiolou. Although I began each interview with specific questions in mind, the conversation usually turned into a warm exchange that flowed on its own. I learned about the lives of these musicians and singers, who lived through a daily reality very different from the one my generation knows, at least. I also tried to gather testimonies about their art, which took centre stage at celebrations, festivities and feasts, but which also held a distinct place in grief and sorrow.</p>
+          <p lang="en">At first glance, one might say that the stories I set out in the notes for each track have nothing to do with the piece being presented. But as I gradually gathered these stories, I realised that my research had stopped being merely adjacent to the album and purely for my own information, and had begun to take on a meaning of its own for the album's listener too. Just as the interpretation of a traditional song — especially by a contemporary musician — is informed by whatever information, biographical or otherwise, one has about one's reference, so too, I believe, will today's listener understand this album better by reading the stories I have included for each track. It will open a window onto a Cyprus of another era, with the musicians and singers themselves as its protagonists.</p>
+          <p lang="en">The great wager for me, then, becomes this: once the reader has stepped through that window, to let themselves become a listener and hear this music the way we understood it and recorded it in 2026, with musicians who are, for the most part, children of the 1980s and '90s. If we manage to move the listener, then we will have succeeded in presenting these seventeen pieces not as musical relics, but as a living tradition relevant to today.</p>
+          <p class="sign" lang="el">Καλήν ακρόαση. — Συμεών</p>
+          <p class="sign" lang="en">Enjoy the listening. — Simon</p>
+          <ol class="notes" lang="el"><li id="intro-fn1" value="1">Δαμαί εννοώ τζ̆αι τον καλοφωνάρη τραγουδιστή με την κλασσική έννοια αλλά τζ̆αι κάποιον όι απαραίτητα καλλίφωνον: (α) που τσ̆αττίζει, δηλ. λέει αυτοσχέδιους στίχους «του καφκά» τζ̆αι «παλιώννει» με άλλον τραουδιστήν ή/τζ̆αι (β) συνθέτει τζ̆αι λέει ερωτικά δίστιχα ή ολιγόστιχα.</li></ol>
+          <ol class="notes" lang="en"><li id="intro-fn1-en" value="1">Here I mean both the fine-voiced singer in the classical sense, and also someone who: (a) tsattizes, i.e. recites improvised verses “out of the blue” and ‘spars’ with another singer, and/or (b) composes and recites improvised love couplets or short verses.</li></ol>
+        </div>
+        <div class="about side">
+          <h3><span lang="el">Οι καλλιτέχνες</span><span lang="en">The artists</span></h3>
+          <p lang="el"><b>Συμεών Μερκούρης</b><span class="role">Φωνή, λαούτο · διασκευές, ενορχηστρώσεις, έρευνα</span></p>
+          <p lang="en"><b>Simon Mercouris</b><span class="role">Voice, laouto · arrangements, orchestration, research</span></p>
+          <p lang="el"><b>Στέλιος Παπαμιχαήλ</b><span class="role">Φωνή, λύρα, λαούτο · συνθέσεις</span></p>
+          <p lang="en"><b>Stelios Papamichael</b><span class="role">Voice, lyra, laouto · compositions</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="songs">
+      <span class="orn b" aria-hidden="true"></span>
+      <h2><span lang="el">Τραγούδια</span><span lang="en">Songs</span></h2>
+      <ol class="index" id="song-index"></ol>
+    </section>
   </div>
-  <p class="hero-artist" lang="el">Συμεών Μερκούρης</p>
-  <p class="hero-artist" lang="en">Simon Mercouris</p>
 
-  <hr class="eyebrow-rule">
+  <div id="tracks"></div>
 
-  <div class="intro-note">
-    <h2 lang="en">Introductory note</h2>
-    <h2 lang="el">Εισαγωγικό σημείωμα</h2>
+  <div class="page">
+    <section class="sec credits-sec" id="contributors">
+      <span class="orn a" aria-hidden="true"></span>
+      <h2><span lang="el">Συνεργάτες</span><span lang="en">Contributors</span></h2>
+      <p class="side prose" lang="el">Ο δίσκος «Το χώμαν» δημιουργήθηκε με τη συμβολή πολλών μουσικών, τραγουδιστών και ερευνητών. Περισσότερες πληροφορίες για τους ερμηνευτές-αναφορές κάθε κομματιού θα βρείτε στις σημειώσεις της ενότητας <a href="#songs">Τραγούδια</a>.</p>
+      <p class="side prose" lang="en">The album "To Homan" was made with the help of many musicians, singers and researchers. More on the reference performers behind each individual piece is in the notes under <a href="#songs">Songs</a>.</p>
 
-    <p lang="el">Έμπνευση μου για τον δίσκον «Το χώμαν» εν κάποιες ερμηνείες κυπριακών παραδοσιακών τραουθκιών που άκουσα που «πραχτικούς», δηλαδή χωρίς τυπικήν μουσικήν εκπαίδευσην, μουσικούς τζ̆αι τραουδιστές<sup class="fn" data-fn="1" tabindex="0" role="button" aria-label="footnote 1">1</sup>. Στην πλειοψηφία τους εδραστηριοποιηθήκαν στο πρώτο μισό του 20ου αιώνα. Γράφω πιο κάτω στες σημειώσεις για κάθε κομμάτιν του δίσκου ποιοι εν τούτοι τζ̆αι το αρχείο που τους άκουσα. Στες σημειώσεις συμπεριλαβάνω επίσης, όπου εθεώρησα σωστό, σχολιασμόν για το κομμάτιν το ίδιο (π.χ. πόθεν έπιαεν το όνομαν του) τζ̆αι το πως επρόσεγγισα την ερμηνεία, διασκεύη/ανασύνθεση τζ̆αι ενορχήστρωση του.</p>
-    <p lang="el">Εχτός όμως που μια σύντομη βιογραφία για τον κάθε ένα που τους μουσικούς τζ̆αι  τραουδιστές που εχρησιμοποίησα ως αναφορά, θα βρείτε τζ̆αι κάποιες που τες ιστορίες τους που εμοιραστήκαν μαζί μου οι ίδιοι, αν ήταν εν ζωή, ή οι επιζώντες συγγενείς τους. Στην αρχή, εξεκίνησα να ψάχνω πληροφορίες για την ζωή τούντων βιωματικών μουσικών τζ̆αι τραουδιστών καθαρά για δική μου ενημέρωση. Εθεώρησα ότι αν ήταν να διασκεύασω, ανασυνθέσω ή ερμηνεύσω κάτι με τούντους αθρώπους ως αναφορά, την ερμηνεία ή τον στίχο τους, έπρεπε να μάθω ότι μπόρω για τζ̆είνους. Εγύρεψα τους ίδιους, αν εζούσαν, ή τα παιθκιά, αγγόνια, αδερφοτέχνια τους, αν όι, για να τους κάμω συνέντευξη. Σύνολο εκουβέντιασα με δεκαενιά συνεντευξιαζόμενους σε Λευκωσία, Παραλίμνι, Λιοπέτρι, Αυκόρου, Δερύνεια, Ξυλοφάου, Λεμεσό, Έμπα τζ̆αι Γιόλου. Ενώ εξεκίνησα έχοντας μες τον νου μου συγκεκριμένες ερωτήσεις που έθελα να κάμω, η συνέντευξη συνήθως εκατέληγε σε μιαν όμορφη κουβέντα που έρεε που μόνη της. Έμαθα ιστορίες για την ζωή τούντων μουσικών τζ̆αι τραουδιστών που εδράσαν σε μια καθημερινότητα πολλά διαφορετικήν, απ’ ότι την ξέρει η γενιά μου τουλάχιστον. Επίσης επροσπάθησα να μαζέψω μαρτυρίες που αφορούσαν την τέχνη τους που επρωταγωνιστούσε σε χαρές, χαζ̆ια τζ̆αι ζιαφέθκια αλλά είσ̆εν επίσης ξεχωριστή θέση τζ̆αι στα μαράζ̆ια τζ̆αι τες θλίψεις.</p>
-    <p lang="el">Εκ πρώτης όψεως κάποιος μπορεί να πει ότι οι ιστορίες που παραθέτω στες σημειώσεις κάθε κομμάθκιού εν έχουν να κάμουν τίποτε με το κομμάτι που παρουσιάζεται. Συγκεντρώνοντας όμως σιγά σιγά τούντες ιστορίες, αντιλήφθηκα ότι εσταμάτησε πλέον η έρευνα μου να εν παρεμφερής στον δίσκο τζ̆αι καθαρά για δίκην μου προσωπική ενημέρωση, αλλά εξεκίνησεν να αποχτά αυτοτελήν σημασίαν τζ̆αι για τον ακροατή του δίσκου. Όπως η ερμηνεία σε ένα παραδοσιακό τραούδιν, ιδίως ενός σύγχρονου μουσικού, ενημερώνεται που τες πληροφορίες, βιογραφικές τζ̆αι μη, που κάτεχει για την αναφορά του έτσι, πιστεύκω, τζ̆αι ο σύγχρονος ακροατής που θα ακούσει τόυντον δίσκον θα τον εννοήσει καλλίττερα θκιεβάζοντας τες ιστορίες που εσυμπεριέλαβα για κάθε κομμάτι. Θα ανοίξει έναν παράθυρο σε μιαν Κύπρο άλλης εποχής με πρωταγωνιστές τους ίδιους τους μουσικούς τζ̆αι τραουδιστές.</p>
-    <p lang="el">Το μεγάλον στοίχημαν για εμένα τότε γίνεται: αφού ποσ̆επάσει ο αναγνώστης μέσα που τούντο παραθύριν, να αφεθεί σαν ακροατής τζ̆αι να ακούσει τόυντην μουσική όπως την εκαταλάβαμεν εμείς τζ̆αι ηχογραφήσαμε το 2026, με μουσικούς, ως επί το πλείστον, γέννημαν των δεκαετιών του ‘80  τζ̆αι του ‘90. Αν καταφέρουμε να τον συγκινήσουμεν τότε εκαταφέραμεν να παρουσιάσουμε τούντα δεκαεφτά κομμάθκια όι ως μουσικά κειμήλια αλλά ως ζώσαν παράδοση σχετική στο σήμερα.</p>
-    <p lang="en">My inspiration for the album "To Homan" came from interpretations of Cypriot traditional songs I heard performed by "practical" musicians and singers<sup class="fn" data-fn="1" tabindex="0" role="button" aria-label="footnote 1">1</sup> — that is, without formal musical training — most of whom were active in the first half of the 20th century. In the notes for each track below, I explain who these performers were and where I found the recordings I used as my reference. Where I felt it was useful, I have also included commentary on the piece itself (for instance, where its title comes from) and on how I approached its interpretation, arrangement/recomposition and orchestration.</p>
-    <p lang="en">Beyond a short biography of each of the musicians and singers I used as a reference, you will also find some of the stories they shared with me themselves, if they were alive, or their surviving relatives shared. At first, I began researching the lives of these musicians and singers purely for my own understanding. I felt that if I was going to arrange, recompose or interpret something using these people, their performance or their verses as my reference, I needed to learn what I could about them. I sought out the performers themselves, where they were still living, or their children, grandchildren or fellow musicians, where they were not, in order to interview them. In total I spoke with nineteen interviewees in Nicosia, Paralimni, Liopetri, Avgorou, Deryneia, Xylofagou, Limassol, Empa and Yiolou. Although I began each interview with specific questions in mind, the conversation usually turned into a warm exchange that flowed on its own. I learned about the lives of these musicians and singers, who lived through a daily reality very different from the one my generation knows, at least. I also tried to gather testimonies about their art, which took centre stage at celebrations, festivities and feasts, but which also held a distinct place in grief and sorrow.</p>
-    <p lang="en">At first glance, one might say that the stories I set out in the notes for each track have nothing to do with the piece being presented. But as I gradually gathered these stories, I realised that my research had stopped being merely adjacent to the album and purely for my own information, and had begun to take on a meaning of its own for the album's listener too. Just as the interpretation of a traditional song — especially by a contemporary musician — is informed by whatever information, biographical or otherwise, one has about one's reference, so too, I believe, will today's listener understand this album better by reading the stories I have included for each track. It will open a window onto a Cyprus of another era, with the musicians and singers themselves as its protagonists.</p>
-    <p lang="en">The great wager for me, then, becomes this: once the reader has stepped through that window, to let themselves become a listener and hear this music the way we understood it and recorded it in 2026, with musicians who are, for the most part, children of the 1980s and '90s. If we manage to move the listener, then we will have succeeded in presenting these seventeen pieces not as musical relics, but as a living tradition relevant to today.</p>
+      <h3><span lang="el">Βασικό σχήμα</span><span lang="en">Core ensemble</span></h3>
+      <ul class="people">
+        <li><b><span lang="el">Συμεών Μερκούρης</span><span lang="en">Simon Mercouris</span></b><span class="r" lang="el">Φωνή, λαούτο · διασκευές, ενορχηστρώσεις, έρευνα</span><span class="r" lang="en">Voice, laouto · arrangements, orchestration, research</span></li>
+      </ul>
 
-    <p class="signoff" lang="el">Καλήν ακρόαση. — Συμεών</p>
-    <p class="signoff" lang="en">Enjoy the listening. — Simon</p>
+      <h3><span lang="el">Συμμετέχοντες μουσικοί &amp; φωνές</span><span lang="en">Guest musicians &amp; voices</span></h3>
+      <ul class="people">
+        <li><b><span lang="el">Αντώνης Πουλλής</span><span lang="en">Antonis Poullis</span></b><span class="r" lang="el">Φωνή (καλεσμένος ερμηνευτής)</span><span class="r" lang="en">Voice (guest performer)</span></li>
+        <li><b><span lang="el">Δημήτρης Πήχας</span><span lang="en">Dimitris Pichas</span></b><span class="r" lang="el">Κοντραμπάσο</span><span class="r" lang="en">Double bass</span></li>
+        <li><b><span lang="el">Εύρος Βοσκαρίδης</span><span lang="en">Evros Voskaridis</span></b><span class="r" lang="el">Βιολί</span><span class="r" lang="en">Violin</span></li>
+        <li><b><span lang="el">Κωνσταντίνα Ξενοφώντος</span><span lang="en">Konstantina Xenofontos</span></b><span class="r" lang="el">Ταμπουτσιά</span><span class="r" lang="en">Tambourine</span></li>
+        <li><b><span lang="el">Μικαέλα Τσαγκάρη</span><span lang="en">Mikaela Tsangari</span></b><span class="r" lang="el">Ηχοληψία · στούντιο Elbow Room</span><span class="r" lang="en">Recording · Elbow Room studio</span></li>
+        <li><b><span lang="el">Μιχάλης (Μισ̆ιέλλης) Πουλλής</span><span lang="en">Michalis (Mishiellis) Poullis</span></b><span class="r" lang="el">Φωνή (καλεσμένος ερμηνευτής)</span><span class="r" lang="en">Voice (guest performer)</span></li>
+        <li><b><span lang="el">Νικολέττα Δημητρίου</span><span lang="en">Nikoletta Dimitriou</span></b><span class="r" lang="el">Φωνή</span><span class="r" lang="en">Voice</span></li>
+        <li><b><span lang="el">Παύλος Μιχαηλίδης</span><span lang="en">Pavlos Michaelides</span></b><span class="r" lang="el">Βιολί, δεύτερες φωνές</span><span class="r" lang="en">Violin, second voices</span></li>
+        <li><b><span lang="el">Στέλιος Παπαμιχαήλ</span><span lang="en">Stelios Papamichael</span></b><span class="r" lang="el">Φωνή, λύρα, λαούτο · συνθέσεις</span><span class="r" lang="en">Voice, lyra, laouto · compositions</span></li>
+        <li><b><span lang="el">Χαράλαμπος Παντελή</span><span lang="en">Charalambos Panteli</span></b><span class="r" lang="el">Ταμπουράς, λαούτο, δεύτερες φωνές</span><span class="r" lang="en">Tambouras, laouto, second voices</span></li>
+        <li><b><span lang="el">Χριστίνα Πολυκάρπου</span><span lang="en">Christina Polykarpou</span></b><span class="r" lang="el">Λύρα</span><span class="r" lang="en">Lyra</span></li>
+      </ul>
+    </section>
 
-    <div class="note-cta">
-      <a href="songs.html" class="btn solid" lang="en">Browse the songs</a>
-      <a href="songs.html" class="btn solid" lang="el">Δείτε τα τραγούδια</a>
-    </div>
+    <section class="sec contact" id="contact">
+      <span class="orn b" aria-hidden="true"></span>
+      <h2><span lang="el">Επικοινωνία</span><span lang="en">Contact</span></h2>
+      <p class="side" lang="el">Έχετε μια ερώτηση ή θέλετε απλώς να πείτε γεια; Επικοινωνήστε:</p>
+      <p class="side" lang="en">Have a question or just want to say hello? Get in touch:</p>
+      <a class="mail" href="mailto:simon.mercouris@gmail.com">simon.mercouris@gmail.com</a>
+    </section>
   </div>
 </main>
 
-<div id="fn-panel">
-  <div class="fn-head"><b>Note <span id="fn-panel-num"></span></b><button class="close" id="fn-panel-close" aria-label="Close">&times;</button></div>
-  <div class="fn-text" id="fn-panel-text"></div>
-</div>
-
 <footer>
-  <p lang="en">Simon Mercouris &middot; To Homan, 2026</p>
   <p lang="el">Συμεών Μερκούρης &middot; Το χώμαν, 2026</p>
+  <p lang="en">Simon Mercouris &middot; To Homan, 2026</p>
 </footer>
 
+<script src="js/album-data.js"></script>
 <script src="js/site.js"></script>
+<script src="js/songs.js"></script>
 </body>
 </html>
