@@ -40,19 +40,15 @@
     });
   }
   // The combining breve (U+0306) marks a Cypriot-dialect sound on
-  // consonants (σ̆, ζ̆) — a combination no Greek font, however good,
-  // has anchor data for, since standard Greek only ever marks vowels
-  // this way. We can't rely on font shaping to place it, so we nudge
-  // it with plain, in-flow CSS (shrink + vertical-align) rather than
-  // position:absolute — absolute positioning was tried before and
-  // broke once these justified, hyphenated paragraphs reflowed, since
-  // it takes the mark out of normal text flow. vertical-align never
-  // leaves that flow, so it reflows and hyphenates safely along with
-  // everything else. Must run on already-escaped text so the regex
-  // only ever matches plain characters, not markup.
-  function stackBreves(escapedText){
-    return escapedText.replace(/\u0306/g, '<span class="brv">\u0306</span>');
-  }
+  // consonants (ζ̆, σ̆, Σ̆, ξ̆, ψ̆). It used to be wrapped in <span class="brv">
+  // and nudged with CSS, but that depended on whichever system font each
+  // device used as a fallback for U+0306 (Google's font subsets leave it
+  // out), so it landed in different places on different machines.
+  // The self-hosted "Alegreya Choman" font in /fonts now contains the breve
+  // with mark anchors on those letters, so the browser positions it itself.
+  // Text is passed through unchanged; wrapping it would split the
+  // letter+mark cluster and stop the anchors from working.
+  function stackBreves(escapedText){ return escapedText; }
   function rich(s){ return stackBreves(escapeHtml(s)); }
   function richBody(s){ return linkifyFootnotes(stackBreves(escapeHtml(s))); }
 
