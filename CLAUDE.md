@@ -1,12 +1,12 @@
 # Το χώμαν / To Homan: album website
 
-Static bilingual (Greek/English) site for the album **Το χώμαν** ("To Homan"), traditional songs of Cyprus by **Συμεών Μερκούρης / Simon Mercouris** with **Στέλιος Παπαμιχαήλ / Stelios Papamichael**. It works as a digital booklet: an introductory note, 17 songs with credits, notes, interviews, sources and footnotes, contributors, and contact. Plain HTML/CSS/JS with no backend and no build step. Hosted from this repo: https://github.com/ypahitas/simeonToHoma
+Static bilingual (Greek/English) site for the album **Το χώμαν** ("To Homan"), traditional songs of Cyprus by **Συμεών Μερκούρης / Symeon Mercouris** with **Στέλιος Παπαμιχαήλ / Stelios Papamichael**. It works as a digital booklet: an introductory note, 17 songs with credits, notes, interviews, sources and footnotes, contributors, and contact. Plain HTML/CSS/JS with no backend and no build step. Hosted from this repo: https://github.com/ypahitas/simeonToHoma
 
 This file is the handoff for any new Claude session. Read it before changing anything.
 
 ## Fixed decisions (don't change without asking)
 
-- **Names.** In English: **Simon Mercouris** and **To Homan**. In Greek: **Συμεών Μερκούρης** and **Το χώμαν** (lowercase χ). Never use "Symeon Merkouris" or "The Soil" as the title. The cover itself says "soil", which is fine.
+- **Names.** In English: **Symeon Mercouris** (the artist's own spelling in the booklet and his Word files; switched from "Simon" on 12 Nov 2026) and **To Homan**. In Greek: **Συμεών Μερκούρης** and **Το χώμαν** (lowercase χ). Never use "Merkouris" with a k, or "The Soil" as the title. The email address stays simon.mercouris@gmail.com. The cover itself says "soil", which is fine.
 - **Text is final-ish and owned by the artist.** Greek comes from the Word file `Κείμενα Δίσκου «Το χώμαν» (ΝΔ - ΣΜ) 01-09-26.docx`, written in Cypriot dialect; keep it verbatim. The English is Claude's translation, already reviewed in places. Don't rewrite either one unless asked.
 - **Layout is a single page** (chosen by the owner on 16 Oct, replacing the old 4-page site): `index.html` has a sticky bar, the ochre cover band, "Ο δίσκος" (intro note plus an artists column), the two-column song index, the song reader (one song at a time, routed by `#song-N`, credits in a sticky left column, notes and sources under the text), "Συντελεστές" and "Επικοινωνία". Keep it. It is based on the designer-matched prototype `index-singlefile.html` (kept outside the repo), with its Google font, base64 images, "Symeon" names, and its own copy and translation removed.
 - `songs.html`, `contributors.html` and `contact.html` are now only redirects to `index.html#…` (keeping the hash), so old links keep working.

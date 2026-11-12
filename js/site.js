@@ -25,6 +25,18 @@
     setTimeout(updateBar, 0);
   }
 
+  // Copyright popup, opened from the footer link
+  var legal = document.getElementById('legal'), legalOpen = document.getElementById('legal-open');
+  if (legal && legalOpen && legal.showModal) {
+    legalOpen.addEventListener('click', function(){ legal.showModal(); });
+    document.getElementById('legal-close').addEventListener('click', function(){ legal.close(); });
+    // a click on the dimmed backdrop (outside the box) closes it too
+    legal.addEventListener('click', function(e){
+      var r = legal.getBoundingClientRect();
+      if (e.target === legal && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) legal.close();
+    });
+  }
+
   // Mobile menu
   var menu = document.getElementById('menu'), nav = document.getElementById('nav');
   if (menu && nav) {
