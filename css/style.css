@@ -126,6 +126,11 @@ main{display:block}
 .back{display:inline-block;text-decoration:none;color:var(--accent);font-weight:500;margin-bottom:2rem}
 .back::before{content:"‹ "}
 .count{margin:0;color:var(--muted);font-variant-numeric:lining-nums}
+/* each song's ornament from the booklet, drawn in the heading orange */
+.song-orn{display:block;width:6rem;height:4.2rem;margin:0 0 1.4rem;background:var(--head);
+  -webkit-mask-position:left center;mask-position:left center;-webkit-mask-size:contain;mask-size:contain;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.song-orn.dot{width:2.6rem;height:2.6rem;border-radius:50%;margin:.8rem 0 2rem}
 .track h3{font-weight:400;font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.08;color:var(--head);margin:.2rem 0 2.5rem;max-width:20ch}
 .spread{display:grid;gap:2rem}
 @media (min-width:900px){

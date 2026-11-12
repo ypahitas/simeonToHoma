@@ -152,7 +152,11 @@
     });
     return '<article class="track" id="'+id+'" aria-labelledby="'+id+'-h">'+
       '<a class="back" href="#songs">'+both(STR.el.all, STR.en.all)+'</a>'+
-      '<header class="track-head"><p class="count">'+m.n+' / '+total+'</p>'+
+      // the song's ornament from the booklet (an orange dot where the designer has none yet)
+      '<header class="track-head">'+(m.orn
+        ? '<span class="song-orn" aria-hidden="true" style="-webkit-mask-image:url(images/ornaments/'+m.orn+'.png);mask-image:url(images/ornaments/'+m.orn+'.png)"></span>'
+        : '<span class="song-orn dot" aria-hidden="true"></span>')+
+      '<p class="count">'+m.n+' / '+total+'</p>'+
       '<h3 id="'+id+'-h">'+both(songData('el', i).title, songData('en', i).title)+'</h3></header>'+
       '<div class="spread"><aside class="credits"><ul>'+cr+'</ul></aside>'+
       '<div class="text">'+lyrics(id)+text+fns+'</div></div>'+

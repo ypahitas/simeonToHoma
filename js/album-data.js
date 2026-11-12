@@ -2331,25 +2331,29 @@ window.__ALBUM_DATA__ = {
    "id": "song-1",
    "n": 1,
    "title_el": "Της σούσας",
-   "title_en": "Song of the swing (Tis sousas)"
+   "title_en": "Song of the swing (Tis sousas)",
+   "orn": "flower-small"
   },
   {
    "id": "song-2",
    "n": 2,
    "title_el": "Ο σκλάβος",
-   "title_en": "The slave"
+   "title_en": "The slave",
+   "orn": "spiral"
   },
   {
    "id": "song-3",
    "n": 3,
    "title_el": "Ο Διενής ψυχομασ̆εί",
-   "title_en": "Digenis is dying"
+   "title_en": "Digenis is dying",
+   "orn": "plants"
   },
   {
    "id": "song-4",
    "n": 4,
    "title_el": "Φωνή Καταραμένη",
-   "title_en": "Cursed Tune (Foni Katarameni)"
+   "title_en": "Cursed Tune (Foni Katarameni)",
+   "orn": "leaves"
   },
   {
    "id": "song-5",
@@ -2361,7 +2365,8 @@ window.__ALBUM_DATA__ = {
    "id": "song-6",
    "n": 6,
    "title_el": "Τα στεφανώματα (Συρτός παφίτικος)",
-   "title_en": "The crowning (stefanomata) (Syrtos from Paphos)"
+   "title_en": "The crowning (stefanomata) (Syrtos from Paphos)",
+   "orn": "vine"
   },
   {
    "id": "song-7",
@@ -2373,61 +2378,71 @@ window.__ALBUM_DATA__ = {
    "id": "song-8",
    "n": 8,
    "title_el": "Η Λενού",
-   "title_en": "Lenou"
+   "title_en": "Lenou",
+   "orn": "flower-branch"
   },
   {
    "id": "song-9",
    "n": 9,
    "title_el": "Ο πραματευτής και ο κλέφτης αδελφός",
-   "title_en": "The merchant and the thief brother"
+   "title_en": "The merchant and the thief brother",
+   "orn": "hanging-flower"
   },
   {
    "id": "song-10",
    "n": 10,
    "title_el": "Μανές Μπάλος Δεύτερος",
-   "title_en": "Manes Balos B"
+   "title_en": "Manes Balos B",
+   "orn": "bird"
   },
   {
    "id": "song-11",
    "n": 11,
    "title_el": "Να σου γοράσω μηχανήν",
-   "title_en": "I’ll buy you a sewing machine"
+   "title_en": "I’ll buy you a sewing machine",
+   "orn": "flower"
   },
   {
    "id": "song-12",
    "n": 12,
    "title_el": "Φωνή Κοτροφίσιμη",
-   "title_en": "Kotrofisimi Tune (Foni Kotrofisimi)"
+   "title_en": "Kotrofisimi Tune (Foni Kotrofisimi)",
+   "orn": "seeds"
   },
   {
    "id": "song-13",
    "n": 13,
    "title_el": "Κάτω στη Ρόδον",
-   "title_en": "Down there in Rhodes"
+   "title_en": "Down there in Rhodes",
+   "orn": "swallow"
   },
   {
    "id": "song-14",
    "n": 14,
    "title_el": "Φωνή Μαρινιωτού",
-   "title_en": "Mariniotou Tune"
+   "title_en": "Mariniotou Tune",
+   "orn": "scroll"
   },
   {
    "id": "song-15",
    "n": 15,
    "title_el": "Τραούδιν του ραάρη",
-   "title_en": "Song of the harvester (Song of raaris)"
+   "title_en": "Song of the harvester (Song of raaris)",
+   "orn": "wave"
   },
   {
    "id": "song-16",
    "n": 16,
    "title_el": "Φωνή Παφίτισσα",
-   "title_en": "Pafitissa Tune"
+   "title_en": "Pafitissa Tune",
+   "orn": "flower-stem"
   },
   {
    "id": "song-17",
    "n": 17,
    "title_el": "Τρεις καλοήροι κρητικοί",
-   "title_en": "Three Cretan monks"
+   "title_en": "Three Cretan monks",
+   "orn": "three-flowers"
   }
  ],
  "lyrics": {
