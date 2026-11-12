@@ -1,74 +1,86 @@
-# Το χώμαν / To Homan: album website
+# το χώμαν / To Homan: album website
 
-Static bilingual (Greek/English) site for the album **Το χώμαν** ("To Homan"), traditional songs of Cyprus by **Συμεών Μερκούρης / Symeon Mercouris** with **Στέλιος Παπαμιχαήλ / Stelios Papamichael**. It works as a digital booklet: an introductory note, 17 songs with credits, notes, interviews, sources and footnotes, contributors, and contact. Plain HTML/CSS/JS with no backend and no build step. Hosted from this repo: https://github.com/ypahitas/simeonToHoma
+Static bilingual (Greek/English) site for the album **το χώμαν** ("To Homan"), traditional songs of Cyprus by **Συμεών Μερκούρης / Symeon Mercouris** with **Στέλιος Παπαμιχαήλ / Stelios Papamichael**. It works as a digital version of the printed booklet: an introductory note, 17 songs (lyrics, credits, notes, interviews, sources, footnotes, photos), contributors, acknowledgements, interview photos and contact. Plain HTML/CSS/JS with no backend and no build step. Hosted from this repo: https://github.com/ypahitas/simeonToHoma
 
 This file is the handoff for any new Claude session. Read it before changing anything.
 
+## Sources of truth
+
+Since 12 Nov 2026 the site follows the designer's booklet and the artist's English files, all kept in the parent folder (`C:\Users\y.pahitas\Downloads\simeon`, outside the repo):
+
+- **Greek:** `to homan draft8.pdf` (140 pages), the booklet. Greek text, lyrics, credits, photo captions, contributors page, thanks, dedication and the legal notice all come from it. It replaced the earlier Word file `Κείμενα Δίσκου «Το χώμαν» (ΝΔ - ΣΜ) 01-09-26.docx`.
+- **English:** the artist's own translation in `Kείμενα Δίσκου_το χώμαν_ΑΓΓΛΙΚΑ.docx` (intro and songs), `Στίχοι_το χώμαν ΑΓΓΛΙΚΑ.docx` (lyrics), `Συντελεστές Δίσκου_…ΑΓΓΛΙΚΑ.docx` (contributors), `Ευχαριστίες Δίσκου_…ΑΓΓΛΙΚΑ.docx` (thanks) and `Legal disclaimer + copyright_το χώμαν.docx`. It replaced Claude's earlier translation.
+- **Photos:** `Track photos-….zip` (song photos, with a caption index .docx in Greek and English) and `Photos for back-….zip` (interview photos, also with an index).
+
+Keep the text verbatim. It is in Cypriot dialect; spellings that look like typos are usually intentional. Fix only mechanical problems from extraction and list them for the owner.
+
 ## Fixed decisions (don't change without asking)
 
-- **Names.** In English: **Symeon Mercouris** (the artist's own spelling in the booklet and his Word files; switched from "Simon" on 12 Nov 2026) and **To Homan**. In Greek: **Συμεών Μερκούρης** and **Το χώμαν** (lowercase χ). Never use "Merkouris" with a k, or "The Soil" as the title. The email address stays simon.mercouris@gmail.com. The cover itself says "soil", which is fine.
-- **Text is final-ish and owned by the artist.** Greek comes from the Word file `Κείμενα Δίσκου «Το χώμαν» (ΝΔ - ΣΜ) 01-09-26.docx`, written in Cypriot dialect; keep it verbatim. The English is Claude's translation, already reviewed in places. Don't rewrite either one unless asked.
-- **Layout is a single page** (chosen by the owner on 16 Oct, replacing the old 4-page site): `index.html` has a sticky bar, the ochre cover band, "Ο δίσκος" (intro note plus an artists column), the two-column song index, the song reader (one song at a time, routed by `#song-N`, credits in a sticky left column, notes and sources under the text), "Συντελεστές" and "Επικοινωνία". Keep it. It is based on the designer-matched prototype `index-singlefile.html` (kept outside the repo), with its Google font, base64 images, "Symeon" names, and its own copy and translation removed.
-- `songs.html`, `contributors.html` and `contact.html` are now only redirects to `index.html#…` (keeping the hash), so old links keep working.
-- **Contact email:** simon.mercouris@gmail.com
+- **Names.** English: **Symeon Mercouris** (the artist's own spelling; the site used "Simon" until 12 Nov 2026) and **To Homan**. Greek: **Συμεών Μερκούρης** and **το χώμαν** (lowercase, as in the booklet; the nav bar uses "το χώμαν"). Never "Merkouris" with a k, or "The Soil" as the title. The email stays **simon.mercouris@gmail.com**.
+- **Single-page layout** (chosen 16 Oct): `index.html` has a sticky bar, the ochre cover band, "Ο δίσκος" (intro note plus an artists column), the two-column song index, the song reader (one song at a time, routed by `#song-N`, credits in a sticky left column), then the sections Συντελεστές, Ευχαριστίες, Φωτογραφίες and Επικοινωνία, and the footer. Menu order: Ο δίσκος, Τραγούδια, Συντελεστές, Ευχαριστίες, Φωτογραφίες, Επικοινωνία. Below 860px the menu collapses to ☰ (six links don't fit on one line above that).
+- `songs.html`, `contributors.html` and `contact.html` are only redirects to `index.html#…`, so old links keep working.
+- **Lyrics are bold, not italic** (owner's request). In English mode each Greek stanza is followed by its English translation in lighter text; in Greek mode only the Greek shows.
+- **Ordinals in song credits** (1ο, 3η, 1st, 2nd…) are shown with the ending in superscript. This is done at render time in `songs.js` (`ordinals()`); the data stays plain.
 
 ## How the code works
 
-- `js/album-data.js`: all album text as `window.__ALBUM_DATA__` (`meta`, `el`, `en`, `footnotes`, `lyrics`). Song bodies are lists of `p`, `heading`, `verse` and `source` items; the English songs keep their sources in a separate `sources` list. Footnotes appear as `[^N]` in the text (Greek only; the English has no markers). `lyrics` maps a song id to stanzas (lists of lines), shown in Greek in both languages.
-- `js/songs.js`: builds the song index and all 17 song articles from that data, with both languages in the DOM, and handles routing (`#song-N` or `#song-N-fnM` shows that song; anything else shows the main page). Footnotes are listed under each song and linked from the superscripts.
-- `js/site.js`: language toggle (`html[data-lang]`, saved in localStorage as `site-lang`, default `el`; the inline script in `index.html` sets it before first paint, and `?lang=en` also works), the mobile menu, and the header colour: `.bar.solid` (ochre, cream text) is set by a scroll check once the cover has gone under the bar, and always on song pages.
-- The intro note, its footnote, contributors and contact are static HTML in `index.html`.
-- Bilingual text uses paired `lang="el"` and `lang="en"` elements, toggled by the rules at the top of `css/style.css`. `.lyrics[lang="el"]` is exempt, so lyrics show in English mode too.
+- `js/album-data.js`: all song text as `window.__ALBUM_DATA__`:
+  - `meta[i]`: `{id: 'song-N', n, title_el, title_en}` for the index and pager.
+  - `el.songs[i]` / `en.songs[i]`: `{id, title, credits[], body[], notes{}}`. `body` items are `{type:'p'|'heading'|'source', text}` or `{type:'verse', lines[]}`. Sources sit in the body where they appear (the reader groups consecutive ones under a "Πηγές/Sources" label).
+  - Footnotes: markers `[^N]` in the text, notes in that song's `notes`. **Greek** footnotes are numbered per song, as in the booklet. **English** footnotes keep the translation's own numbering (1–38 across the album), because the English text refers to them by number ("See fn. 10").
+  - English text marks italics as `{i}…{/i}`; `songs.js` turns them into `<em>`. The Greek has none.
+  - `lyrics[id]`: Greek stanzas (lists of lines); `lyricsEn[id]`: English, **one stanza per Greek stanza** (five songs needed hand grouping because the translation breaks lines differently: 2, 6, 10, 14, 15). `lyricNotes` / `lyricNotesEn`: lyric footnotes, numbered per song. `lyricsCentered[id]`: indexes of stanzas set as a centred couplet (only song 16's last couplet).
+  - `photos[id]`: `[{src, w, h, el, en, at}]`; `at` is the index of the Greek body item the photo goes before. English placement is proportional to the English body (the texts differ in length), and a photo never goes between a line ending in ":" and the quote it introduces.
+  - `el.intro` / `en.intro` mirror the intro paragraphs but are not rendered; the intro shown is the static HTML in `index.html`.
+- `js/songs.js`: builds the song index and all 17 articles (both languages in the DOM) and handles routing: `#song-N`, `#song-N-fnM`, `#song-N-lfnM` (lyric note) show that song; anything else shows the main page.
+- `js/site.js`: language toggle (`html[data-lang]`, saved in localStorage as `site-lang`, default `el`; the inline script in `index.html` sets it before first paint, and `?lang=en` works), the ochre `.bar.solid` header after the cover scrolls away, the copyright popup (`<dialog id="legal">`, opened from the footer link), and the mobile menu.
+- Static HTML in `index.html`: intro note, artists column, Συντελεστές (separate `lang="el"` and `lang="en"` blocks, built from booklet pp. 10–11 and the contributors docx), Ευχαριστίες (dedication «Στον παπάν μου, Σπύρον (1954-2011)» on top; the English dedication is Claude's translation), Φωτογραφίες (gallery of `images/interviews/`, captions from the zip index), contact, footer and the legal dialog.
+- Bilingual text uses paired `lang="el"` / `lang="en"` elements, toggled by the rules at the top of `css/style.css`. `.lyrics[lang="el"]` is exempt, so the Greek lyrics show in English mode too.
+- Images: `images/cover.jpg` (placeholder render of the cover), `images/songs/` (23 track photos, max 1400px), `images/interviews/` (17 interview photos, max 1600px), `images/ornament-*.png` (the two used as section ornaments) and `images/ornaments/` (16 ornaments extracted from draft 8 plus the cover stone engraving; not used on the page yet).
 
 ## The Cypriot breve (U+0306): read this before touching fonts
 
-The dialect marks consonants with a combining breve: ζ̆ (~1,360 times), σ̆ (~260), Σ̆ (20), ξ̆ (8) and ψ̆ (2). It is always stored as base letter + U+0306.
+The dialect marks consonants with a combining breve: ζ̆, σ̆, Σ̆, ξ̆, ψ̆. It is always stored as base letter + U+0306 (about 1,100 in the Greek data). There are also a few U+032E (breve below), e.g. τζ̆ει̮αμαί, which are intentional.
 
 History of attempts:
-1. **Newsreader/Fraunces/Noto (5 Sep):** the breve floated. These fonts lack U+0306, so the browser drew it from another font and the letter and mark came apart.
-2. **Manual CSS positioning (`position:absolute`):** broke when justified, hyphenated text reflowed. This is a dead end.
-3. **Gentium Plus plus `<span class="brv">` with `vertical-align` and negative-margin nudges (9–11 Sep):** looked right on the developer's machine only. Google Fonts' subsets of Gentium Plus (and Alegreya) **don't include U+0306**, so the mark still came from each device's fallback font, and the nudge values were tuned to one particular fallback. A HarfBuzz test on 5 Sep also showed that no stock font (Gentium Plus or Book Plus, Noto, PT Serif, Cormorant) has anchors that position a breve over Greek consonants.
-4. **Current fix (16 Oct, "first styling draft"):** a self-hosted, modified Alegreya named **"Alegreya Choman"** (`fonts/alegreya-choman-{400,700}-{normal,italic}.woff2`). Full Alegreya does contain U+0306 and has mark anchors on Greek vowels and Ζ. `tools/make_font.py` adds breve anchors to **ζ σ ξ ψ** (copied from α's clearance) and **Σ** (copied from Ζ), then instances the weights, renames the font (as the OFL requires; licence in `fonts/OFL.txt`) and subsets it to woff2. The browser's own shaping now centres the breve, the same way Word does.
+1. **Newsreader/Fraunces/Noto (5 Sep):** the breve floated; those fonts lack U+0306.
+2. **Manual CSS positioning:** broke with justified, hyphenated text. Dead end.
+3. **Gentium Plus plus `<span class="brv">` nudges (9–11 Sep):** only looked right on one machine, because Google Fonts' subsets don't include U+0306.
+4. **Current fix (16 Oct):** a self-hosted, modified Alegreya named **"Alegreya Choman"** (`fonts/alegreya-choman-{400,700}-{normal,italic}.woff2`). `tools/make_font.py` adds breve anchors to **ζ σ ξ ψ** and **Σ**, instances the weights, renames the font (OFL, licence in `fonts/OFL.txt`) and subsets it.
 
-**Rules that follow from this:**
-- **Never wrap U+0306 in its own element.** A span splits the letter+mark cluster and disables the anchors. `songs.js` passes text through untouched (only HTML-escaped).
-- **Every text font must be "Alegreya Choman"** (`var(--serif)`). Don't load Google Fonts for text that can contain the breve.
-- **Adding a weight or letter:** download `Alegreya[wght].ttf` and `Alegreya-Italic[wght].ttf` from https://github.com/google/fonts/tree/main/ofl/alegreya into `tools/source/`, edit `BASES` or the weights in `tools/make_font.py`, then run `pip install fonttools brotli` and `cd tools && python3 make_font.py`.
+**Rules:**
+- **Never wrap U+0306 in its own element.** `songs.js` only escapes text.
+- **Every text font must be "Alegreya Choman"** (`var(--serif)`).
+- Adding a weight or letter: download `Alegreya[wght].ttf` and `Alegreya-Italic[wght].ttf` from https://github.com/google/fonts/tree/main/ofl/alegreya into `tools/source/`, edit `make_font.py`, then `pip install fonttools brotli` and `cd tools && python3 make_font.py`.
 - **Still to verify:** confirmed in Chrome only. Check Safari on iPhone and Firefox.
 
-## Visual style (matched to the designer's booklet, `pages_draft4.pdf`)
+**Extracting Greek from the PDF:** use PyMuPDF (`import fitz`); `pdftotext` drops breves. Known PDF quirks: some breves come out as a spacing breve U+02D8 with stray spaces ("Χατ ζ˘ ήκυριακου"), one as a precomposed ῐ on the wrong letter, a few `τζ’` lack the breve, soft hyphens (U+00AD) mark line-end hyphenation, and footnote markers are small-size digit spans. The 12 Nov import cleaned all of these; the scripts were one-off and are not in the repo.
 
-- The booklet uses **Alegreya** only (Regular, Medium, Bold, ExtraBold, Italic).
-- **Palette** (sampled from the PDF; tokens in `:root` of `css/style.css`):
-  - Ochre `#BD7431`: cover background and footer.
-  - Sun `#FCC443`.
-  - Soil brown `#3B2000`.
-  - Cream `#EFE5D8`.
-  - Heading orange `#B86A28`.
-  - Small orange text `#9A531B`: the booklet orange darkened for legibility.
-  - White paper `#FFFEFB`.
-- Dark mode has its own tokens (`prefers-color-scheme`).
-- **Ornaments** (`images/ornament-leaves.png`, `ornament-flower.png`) were cut from the PDF and are used as CSS masks on `.orn.a` and `.orn.b` above each section title. The vertical "το χώμαν" in the left margin of a song page copies the booklet's running head.
-- **Cover:** `images/cover.jpg` is a placeholder, a render of PDF page 1. Replace it with the original artwork when the designer sends it.
-- Credits follow the booklet's "**Μουσική:** Παραδοσιακό" style in orange. Person subheadings are underlined orange. Verse is black italic. Lyrics are bold italic, as in the booklet.
-- The designer's PDF itself drops the breve in its bold italic lyrics (the text has U+0306, the font can't draw it). Alegreya Choman draws it.
+## Visual style (matched to the designer's booklet)
 
-## Conversation history (claude.ai)
+- **Alegreya** only (as Alegreya Choman). Palette tokens in `:root` of `css/style.css`: ochre `#BD7431` (cover, header, footer), sun `#FCC443`, soil `#3B2000`, cream `#EFE5D8`, heading orange `#B86A28`, small orange text `#9A531B`, white paper `#FFFEFB`. Dark mode has its own tokens.
+- Ornaments are CSS masks on `.orn.a` / `.orn.b` above section titles. The vertical "το χώμαν" in the left margin of song pages copies the booklet's running head.
+- Credits in orange ("**Μουσική:** Παραδοσιακό"), person subheadings underlined orange, verse in the notes black italic, lyrics bold upright, photo captions small italic.
 
-1. **"Website text integration with Greek characters"** (5 Sep 2026), https://claude.ai/chat/e67fdd5c-8a33-45f3-bdd2-bce3e3afee4b. First build from the Word file: structure, the 17 songs, full English translation, footnotes, name corrections (Simon Mercouris / To Homan), the intro note added, the first breve attempts, and the HarfBuzz font test. Became the "Multipage Draft 1" commit.
-2. **"Cypriot breve characters display issues"** (9–11 Sep 2026), https://claude.ai/chat/c7be4658-f74a-4544-8637-2782c63d760b. Why Word renders the breve and browsers don't; the move to Gentium Plus plus `.brv` nudges (the "breve" commits); contributors and footnote fixes; sidebar scrollbar styling; advice for the designer on breves in InDesign (Glyphs panel U+0306, a GREP style applying a character style).
-3. **Booklet styling thread** (16 Oct 2026). Matched the site to the designer's PDF, diagnosed the U+0306 subset problem, built the patched Alegreya Choman font, and produced the commit **"first styling draft"** on top of "sidebar styling". The same thread also made a separate single-page prototype (`index-singlefile.html`).
-4. **Single-page layout** (16 Oct 2026, Claude Code). The owner preferred that prototype's layout, so the site was rebuilt on it (commit "single page layout"), with the site's own text. The text of `pages draft4.pdf` was compared word for word (PyMuPDF extracts it with breves; `pdftotext` doesn't): the intro note and Μανές Μπάλος Πρώτος match the site exactly. Φωνή Κοτροφίσιμη got the PDF's lyrics and its reworded credits, but the owner chose to keep the site's notes, because the PDF's version has no breves, drops -ν endings, and has typos. The 134 word differences are in `kotrofisimi-pdf-differences.md` (outside the repo) for Simon to decide. The PDF's Μπάλος lyrics are a layout-filler copy of the Κοτροφίσιμη ones, so they were not used.
+## Conversation history
+
+1. **"Website text integration with Greek characters"** (5 Sep 2026, claude.ai), https://claude.ai/chat/e67fdd5c-8a33-45f3-bdd2-bce3e3afee4b. First build from the Word file, first English translation, first breve attempts.
+2. **"Cypriot breve characters display issues"** (9–11 Sep 2026, claude.ai), https://claude.ai/chat/c7be4658-f74a-4544-8637-2782c63d760b. Gentium Plus and `.brv` nudges; advice for the designer on breves in InDesign.
+3. **Booklet styling thread** (16 Oct 2026). Matched the site to the designer's PDF draft 4, built Alegreya Choman ("first styling draft").
+4. **Single-page layout** (16 Oct 2026, Claude Code). Rebuilt on the single-page prototype ("single page layout", then "contributors rename, remove cover button", "orange header").
+5. **Booklet draft 8** (12 Nov 2026, Claude Code). Commit "booklet draft 8 text, translation, photos": all Greek from draft 8 (titles, credits, notes, sources, per-song footnotes, lyrics for all 17 songs), English from the artist's Word files (replacing Claude's translation), new Ευχαριστίες and Φωτογραφίες sections, rebuilt Συντελεστές, copyright popup, track photos inside the songs, ornaments extracted, name switched to Symeon, lyrics made upright, superscript ordinals in credits, song 16's centred couplet. Then the nav bar title was lowercased to "το χώμαν".
 
 ## Open items
 
-- The real cover artwork (waiting on the designer), and possibly the artwork without lettering, so the title can be live text.
-- Lyrics: only Φωνή Κοτροφίσιμη has them (from the PDF draft). Add the others to `lyrics` in `js/album-data.js` as the booklet pages arrive.
-- Φωνή Κοτροφίσιμη: Simon to go through `kotrofisimi-pdf-differences.md`. Also the name: the PDF says "Χριστόφορος Πριγγόπουλος" (now used in the credits), the Word notes say "Χρίστος Πριγκόπουλλος" (his nickname there is Ττοφή).
-- Booklet page references in the text ("σ. [39]", "[●]") mean nothing on the web. Ask whether to remove them or turn them into links to the right song.
-- Source typos left as-is, pending the author: "Κάρπαθονν", "Ελλάδαςν", "Χουρμούζιο.ν", and "Νοεβρίου". (The missing "(" in the Φωνή Κοτροφίσιμη vocals credit is fixed by the PDF wording.)
-- Possible extras: social-preview (Open Graph) image tags once the domain is known, and a desktop TTF of Alegreya Choman for the designer's InDesign work, since the same anchors would fix the breve there too.
+- **Real cover artwork** (waiting on the designer); `images/cover.jpg` is a render of the PDF cover. The stone engraving alone is in `images/ornaments/cover-stone.png` if the title should become live text.
+- **Page references** mean nothing on the web: the Greek has booklet page numbers ("σ. [96]", "βλ. σ. [77 - 87]"), the English has placeholders ("p. [●]"). Ask whether to remove them or turn them into links to the right song.
+- **Track numbering:** credits on Συντελεστές use the CD numbering ("Δ1 κομ. 2", "D2 track 4"), while the site numbers songs 1–17.
+- **Possible PDF typos left as-is** for the artist: "τζ̆ιαι Πόλην" (song 13 lyrics), "Συγεγκριμένα" (song 16), "εκουβένγκιασα" (intro); "Κάτω στη Ρόδον" on the song page vs "Κάτω στην Ρόδον" in the booklet's track list. Latin look-alike letters inside some Greek words (e.g. "Aντώνης" with a Latin A) are also as in the source.
+- **Caption differences** between the photo index and the booklet: photo 23 (Μαργαρίτα "αριστερά" in the index, "δεξιά" in the booklet; the index was used), photo 17 ("Μαζί με" vs "Με"). The interview-section subtitle fixes the booklet's misspelling "συνεντέυξεις".
+- **English spellings** follow the translator and sometimes differ from captions or credits (e.g. "Pittyris" in the text, "Pittiris" in captions; "Nicoletta Demetriou" vs Greek "Νικολέττα Δημητρίου").
+- The ornaments in `images/ornaments/` are not used yet; they could replace or vary the two section ornaments.
+- Social-preview (Open Graph) tags once the domain is known; a desktop TTF of Alegreya Choman for the designer's InDesign work.
 
 ## Workflow
 
-The owner works on Windows (`C:\Users\y.pahitas\Downloads\simeon\git`) and pushes to `main`. Commit messages are short and lowercase (e.g. "breve", "footnote", "first styling draft"). Preview locally with `python3 -m http.server 8000`. Test a song page and the breve on both desktop and phone after every change.
+The owner works on Windows (`C:\Users\y.pahitas\Downloads\simeon\git`) and pushes to `main`. Commit messages are short and lowercase. Preview locally with `python -m http.server 8000` from the repo (the parent folder's `.claude/launch.json` has a "site" config for this). Browsers cache the JS and CSS hard; reload without cache after changes. Test a song page, English mode and the breve on desktop and phone after every change.
