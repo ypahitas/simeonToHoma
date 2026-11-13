@@ -14,11 +14,19 @@
   // The Cypriot breve (U+0306) is passed through untouched: the Alegreya Choman
   // font positions it over the letter itself. Never wrap it in its own element,
   // or the letter+mark cluster splits and the mark floats.
-  // Escape, then turn the data's {i}…{/i} italics (used in the English) into <em>.
-  function fmt(s){ return esc(s).replace(/\{i\}/g, '<em>').replace(/\{\/i\}/g, '</em>'); }
+  // Escape, then turn the data's {i}…{/i} italics (used in the English) into <em>
+  // and its cross-references {a song-N}…{/a} (they replace the booklet's page numbers) into links.
+  function fmt(s){
+    return esc(s).replace(/\{i\}/g, '<em>').replace(/\{\/i\}/g, '</em>')
+      .replace(/\{a ([\w-]+)\}/g, '<a class="xref" href="#$1">').replace(/\{\/a\}/g, '</a>');
+  }
   function linkify(h){ return h.replace(/https?:\/\/[^\s<]+/g, function(u){ return '<a href="'+u+'" rel="noopener">'+u+'</a>'; }); }
   function both(el, en){ return '<span lang="el">'+esc(el)+'</span><span lang="en">'+esc(en)+'</span>'; }
   function songData(l, i){ return DATA[l].songs[i]; }
+  // Two CDs, as on the back of the booklet: songs 1-8 on disc 1, 9-17 on disc 2.
+  var DISC1 = 8;
+  function disc(m){ return m.n > DISC1 ? 2 : 1; }
+  function discNo(m){ return m.n > DISC1 ? m.n - DISC1 : m.n; }
   // Only the songs of the current release (js/release.js) are built.
   var REL = window.__RELEASE__ || {};
   var LIST = DATA.meta.filter(function(m){ return !REL.songs || REL.songs.indexOf(m.id) > -1; });
@@ -68,8 +76,9 @@
       photosAt(k);
       if (b.type === 'source'){ pending.push(b.text); return; }
       flush();
-      if (b.type === 'p') out.push('<p>'+withNotes(b.text, id, l, used)+'</p>');
-      else if (b.type === 'heading') out.push('<h4>'+fmt(b.text)+'</h4>');
+      // q: an interview passage, inset on both sides as in the booklet (2: dialogue inside one)
+      if (b.type === 'p') out.push('<p'+(b.q ? ' class="q'+(b.q > 1 ? ' q2' : '')+'"' : '')+'>'+withNotes(b.text, id, l, used)+'</p>');
+      else if (b.type === 'heading') out.push('<h4'+(b.anchor ? ' id="'+id+'-'+b.anchor+(l==='en'?'-en':'')+'"' : '')+'>'+fmt(b.text)+'</h4>');
       else if (b.type === 'verse') b.lines.forEach(function(ln, k){
         var cls = 'verse' + (k===0 ? ' vs' : '') + (k===b.lines.length-1 ? ' ve' : '');
         out.push('<p class="'+cls+'">'+withNotes(ln, id, l, used)+'</p>');
@@ -138,7 +147,7 @@
   }
 
   function track(m, k){
-    var i = DATA.meta.indexOf(m), id = m.id, total = DATA.meta.length;
+    var i = DATA.meta.indexOf(m), id = m.id;
     var text = '', cr = '', fns = '';
     // Photos are placed by their position in the Greek text (as in the booklet);
     // the English text is laid out differently, so it gets the same relative spot.
@@ -162,26 +171,30 @@
       '<header class="track-head">'+(m.orn
         ? '<span class="song-orn" aria-hidden="true" style="-webkit-mask-image:url(images/ornaments/'+m.orn+'.png);mask-image:url(images/ornaments/'+m.orn+'.png)"></span>'
         : '<span class="song-orn dot" aria-hidden="true"></span>')+
-      '<p class="count">'+m.n+' / '+total+'</p>'+
+      '<p class="count">'+both('Δίσκος '+disc(m), 'Disc '+disc(m))+' · '+discNo(m)+'</p>'+
       '<h3 id="'+id+'-h">'+both(songData('el', i).title, songData('en', i).title)+'</h3></header>'+
       '<div class="spread"><aside class="credits"><ul>'+cr+'</ul></aside>'+
       '<div class="text">'+lyrics(id)+text+fns+'</div></div>'+
       pager(k)+'</article>';
   }
 
-  document.getElementById('song-index').innerHTML = LIST.map(function(m){
-    return '<li><a href="#'+m.id+'"><span class="no">'+m.n+'</span>'+
-      '<span class="tt" lang="el">'+esc(m.title_el)+'</span><span class="tt" lang="en">'+esc(m.title_en)+'</span></a></li>';
+  document.getElementById('song-index').innerHTML = [1, 2].map(function(d){
+    var list = LIST.filter(function(m){ return disc(m) === d; });
+    return list.length ? '<div class="disc"><h3>'+both('Δίσκος '+d, 'Disc '+d)+'</h3><ol class="index">'+list.map(function(m){
+      return '<li><a href="#'+m.id+'"><span class="no">'+discNo(m)+'</span>'+
+        '<span class="tt" lang="el">'+esc(m.title_el)+'</span><span class="tt" lang="en">'+esc(m.title_en)+'</span></a></li>';
+    }).join('')+'</ol></div>' : '';
   }).join('');
   document.getElementById('tracks').innerHTML = LIST.map(track).join('\n');
 
-  // Routing: #song-N (or a footnote inside it, #song-N-fnM) shows that song;
+  // Routing: #song-N (or anything inside it: #song-N-fnM, a sub-section) shows that song;
   // anything else shows the main page.
   var tracks = [].slice.call(document.querySelectorAll('.track'));
   function route(){
     var h = decodeURIComponent(location.hash.slice(1)), cur = null;
     tracks.forEach(function(t){
-      var hit = h === t.id || h.indexOf(t.id+'-fn') === 0 || h.indexOf(t.id+'-lfn') === 0;
+      // song-N-fnM, song-N-lfnM, song-N-pittatzis…: anything inside song N
+      var hit = h === t.id || h.indexOf(t.id+'-') === 0;
       t.classList.toggle('on', hit);
       if (hit) cur = t;
     });

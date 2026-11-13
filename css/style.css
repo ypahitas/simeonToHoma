@@ -101,8 +101,10 @@ main{display:block}
 .orn.b{--m:url("../images/ornament-flower.png")}
 .prose{max-width:38rem}
 .prose h3{font-weight:700;color:var(--accent);font-size:1.15rem;margin:0 0 1rem}
-.prose p{margin:0 0 1.1rem;hyphens:auto}
-.prose .sign{font-style:italic;margin-bottom:1.2rem}
+.prose p{margin:0 0 1.1rem;hyphens:auto;text-align:justify}
+/* sign-off as in the booklet (p. 10): the wish, a gap, then the name on its own line */
+.prose .sign{text-align:left;margin:2.4rem 0 1.4rem}
+.prose .signer{text-align:left}
 .prose.wide{max-width:50rem}
 @media (min-width:900px){.prose.wide{font-size:1.2rem;line-height:1.65}}
 .credits-sec h3{font-weight:700;font-size:1.15rem;color:var(--accent);margin:0 0 .5rem}
@@ -127,7 +129,11 @@ main{display:block}
 :root[data-theme="dark"] .listen{color:#fff}
 
 /* ---------- index ---------- */
-.index{list-style:none;margin:0;padding:0;columns:2 22rem;column-gap:4rem}
+/* two CDs side by side, as on the back of the booklet */
+.discs{display:grid;gap:2.5rem 4rem}
+@media (min-width:760px){.discs{grid-template-columns:1fr 1fr}}
+.disc h3{font-weight:700;font-size:1.15rem;color:var(--accent);margin:0 0 .4rem}
+.index{list-style:none;margin:0;padding:0}
 .index li{break-inside:avoid}
 .index a{display:flex;gap:1rem;align-items:baseline;padding:.6rem 0;text-decoration:none;border-bottom:1px solid var(--rule)}
 .index .no{font-weight:800;color:var(--head);min-width:1.6rem;text-align:right;font-variant-numeric:lining-nums tabular-nums}
@@ -158,6 +164,12 @@ main{display:block}
 .credits .k{font-weight:700}
 .credits sup.ord{font-size:.68em;line-height:0;margin-left:.04em}
 .text p{margin:0 0 1.1rem;hyphens:auto}
+/* running text is justified, as in the booklet (lyrics, verse and sources are not) */
+.text > div > p:not(.verse){text-align:justify}
+/* interview passages, inset on both sides as in the booklet; .q2 is dialogue inside one */
+.text p.q{margin-left:2rem;margin-right:2rem}
+.text p.q2{margin-left:4rem;margin-right:4rem}
+@media (max-width:600px){.text p.q{margin-left:1.1rem;margin-right:1.1rem}.text p.q2{margin-left:2.2rem;margin-right:2.2rem}}
 .text h4{font-weight:700;font-size:1.25rem;color:var(--accent);margin:2.6rem 0 .9rem;text-decoration:underline;text-underline-offset:.25em;text-decoration-thickness:1px}
 .text .verse{margin:0 0 0 1.5rem;font-style:italic;font-size:1.05rem;line-height:1.5}
 .text .verse.vs{margin-top:.2rem}
@@ -166,6 +178,7 @@ main{display:block}
 .text .src-label{font-weight:700;color:var(--accent);font-size:.95rem;margin:0 0 .35rem}
 .text .src{font-size:.95rem;color:var(--muted);margin:0 0 .35rem;padding-left:1.5rem;text-indent:-1.5rem;overflow-wrap:anywhere}
 .text a{color:var(--accent)}
+.text a.xref{text-decoration-thickness:1px;text-underline-offset:.18em}
 .lyrics{margin:0 0 2.5rem;font-weight:700;line-height:1.55}
 .lyrics p{margin:0 0 1.1rem;hyphens:none}
 .lyrics .notes{margin-top:1.2rem;font-weight:400}
@@ -182,7 +195,6 @@ sup.fn a{text-decoration:none;color:var(--accent);font-weight:700}
 .notes{margin:2.5rem 0 0;padding:1.2rem 0 0 1.4rem;border-top:1px solid var(--head);font-size:.92rem;color:var(--muted);line-height:1.45}
 .notes li{margin:0 0 .45rem}
 .notes li::marker{color:var(--accent);font-weight:700}
-.notes li:target{color:var(--ink)}
 .pager{display:flex;justify-content:space-between;gap:1rem;margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule)}
 .pn{text-decoration:none;font-weight:700;color:var(--accent)}
 .pn.prev::before{content:"‹ "} .pn.next{text-align:right} .pn.next::after{content:" ›"}
