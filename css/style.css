@@ -58,7 +58,7 @@ html[data-lang="en"] .lyrics[lang="el"]{display:block!important}
 .lang:hover{background:var(--accent);color:var(--paper)}
 .menu{display:none;font:inherit;background:none;border:0;color:var(--ink);padding:.3rem;cursor:pointer}
 .menu svg{display:block}
-@media (max-width:860px){
+@media (max-width:940px){
   .menu{display:block}
   .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;
     background:var(--paper);border-bottom:1px solid var(--rule)}
@@ -71,7 +71,7 @@ html[data-lang="en"] .lyrics[lang="el"]{display:block!important}
 .bar.solid .mark,.bar.solid .lang,.bar.solid .menu{color:var(--cream)}
 .bar.solid .nav a:hover{color:var(--sun)}
 .bar.solid .lang:hover{background:var(--cream);color:var(--ochre)}
-@media (max-width:860px){
+@media (max-width:940px){
   .bar.solid .nav{background:var(--ochre);border-bottom-color:var(--ochre)}
   .bar.solid .nav a{border-top-color:rgba(239,229,216,.35)}
 }
@@ -227,6 +227,15 @@ html.partial .contact .orn{--m:url("../images/ornament-leaves.png")}  /* follows
 .gallery img{width:100%;background:var(--rule)}
 .gallery img + img{margin-top:.6rem}
 .gallery figcaption{margin-top:.6rem;font-size:.95rem;font-style:italic;color:var(--muted);line-height:1.4}
+
+/* ---------- buy ---------- */
+.buy .prose p{margin:0 0 .8rem;text-align:left;hyphens:manual}
+.buy .ship{color:var(--accent)}
+.buy-btns{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:1.8rem 0 .8rem}
+.btn{display:inline-block;padding:.7rem 1.6rem;background:var(--accent);color:var(--paper);
+  font-size:1.15rem;text-decoration:none;border-radius:2px;transition:background .2s}
+.btn:hover{background:var(--ink)}
+.buy-note{margin:0;font-size:.95rem;font-style:italic;color:var(--muted)}
 
 /* ---------- contact ---------- */
 .contact .mail{font-size:clamp(1.4rem,4vw,2.1rem);color:var(--head);text-decoration-thickness:1px;text-underline-offset:.2em;overflow-wrap:anywhere}
