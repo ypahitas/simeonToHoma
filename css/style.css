@@ -105,10 +105,26 @@ main{display:block}
 .prose .sign{font-style:italic;margin-bottom:1.2rem}
 .cols{display:grid;gap:3rem}
 @media (min-width:900px){.cols{grid-template-columns:minmax(0,38rem) minmax(0,1fr);gap:5rem}}
-.about h3,.credits-sec h3{font-weight:700;font-size:1.15rem;color:var(--accent);margin:0 0 .5rem}
-.about p{margin:0 0 1rem}
+.credits-sec h3{font-weight:700;font-size:1.15rem;color:var(--accent);margin:0 0 .5rem}
 .side{font-size:1.05rem}
-.side .role{display:block;color:var(--muted)}
+
+/* ---------- listen icons (Songs heading and footer) ---------- */
+.sec-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem 2rem;margin:0 0 2rem}
+.sec-head h2{margin:0}
+/* Official Spotify / YouTube shapes (Simple Icons, CC0). The brands only allow their own
+   colours or plain black/white, so they are near-black on the page and white on ochre or dark. */
+.listen{display:flex;align-items:center;gap:.9rem;color:#191414}
+.listen-label{font-style:italic;color:var(--muted);font-size:1rem}
+.listen-link{display:inline-flex;padding:.3rem;margin:-.3rem;border-radius:6px;color:inherit;cursor:pointer;
+  transition:opacity .2s ease,transform .2s ease}
+.listen-link svg{display:block;width:26px;height:26px}
+.listen-link:hover{opacity:.7;transform:translateY(-1px)}
+.listen-link.soon{cursor:default}
+.listen-link.soon:hover{opacity:1;transform:none}
+.listen.foot{color:#fff}
+.listen.foot .listen-label{color:var(--cream);opacity:.85}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .listen{color:#fff}}
+:root[data-theme="dark"] .listen{color:#fff}
 
 /* ---------- index ---------- */
 .index{list-style:none;margin:0;padding:0;columns:2 22rem;column-gap:4rem}

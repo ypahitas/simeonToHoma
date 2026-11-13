@@ -25,6 +25,18 @@
     setTimeout(updateBar, 0);
   }
 
+  // Spotify / YouTube icons (by the Songs heading and in the footer).
+  // Paste the album's links here; until then the icons show but go nowhere.
+  var LISTEN_LINKS = {
+    spotify: '',   // e.g. https://open.spotify.com/album/…
+    youtube: ''    // e.g. https://www.youtube.com/playlist?list=…
+  };
+  [].forEach.call(document.querySelectorAll('[data-listen]'), function(a){
+    var url = LISTEN_LINKS[a.getAttribute('data-listen')];
+    if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
+    else a.classList.add('soon');
+  });
+
   // Copyright popup, opened from the footer link
   var legal = document.getElementById('legal'), legalOpen = document.getElementById('legal-open');
   if (legal && legalOpen && legal.showModal) {
