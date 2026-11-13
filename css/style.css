@@ -103,8 +103,8 @@ main{display:block}
 .prose h3{font-weight:700;color:var(--accent);font-size:1.15rem;margin:0 0 1rem}
 .prose p{margin:0 0 1.1rem;hyphens:auto}
 .prose .sign{font-style:italic;margin-bottom:1.2rem}
-.cols{display:grid;gap:3rem}
-@media (min-width:900px){.cols{grid-template-columns:minmax(0,38rem) minmax(0,1fr);gap:5rem}}
+.prose.wide{max-width:50rem}
+@media (min-width:900px){.prose.wide{font-size:1.2rem;line-height:1.65}}
 .credits-sec h3{font-weight:700;font-size:1.15rem;color:var(--accent);margin:0 0 .5rem}
 .side{font-size:1.05rem}
 
