@@ -365,7 +365,7 @@ window.__ALBUM_DATA__ = {
      {
       "type": "p",
       "text": "Μπαίννω έσσω, εβάωσα τες πόρτες τζ̆αι τα παραθύρκα! Να μεν ’κούσω τίποτε άλλον! Είχεν να πεθάνω! Έκαμα θκυο μέρες τζ̆αι με έτρωα με έπιννα. Τέθκοιαν συγκίνησην! Είμαι τόση γεναίκα εν εία, ρε κοπελλούθκια. Εν εία!",
-      "q": 1
+      "q": 2
      },
      {
       "type": "source",
@@ -592,7 +592,8 @@ window.__ALBUM_DATA__ = {
      },
      {
       "type": "p",
-      "text": "Εσυνέχισεν μετά να τον πειράζει [τον γαμπρόν]:"
+      "text": "Εσυνέχισεν μετά να τον πειράζει [τον γαμπρόν]:",
+      "q": 1
      },
      {
       "type": "verse",
@@ -662,6 +663,7 @@ window.__ALBUM_DATA__ = {
       "lines": [
        "Εννά πενιάσω τον παπάν χώμαν να μεν τους βάλει",
        "γιατ’ εν κάμνω τες κόρες μου της μαύρης γης χαλάλιν",
+       "",
        "Nα ’τουν ο Χάρος δίκαιος τζ̆αι να ’καμνεν χαττίρκα",
        "εν θέννα ’πίνναν οι γονιοί τέθκοια πικρά ποτήρκα"
       ]
@@ -1544,7 +1546,7 @@ window.__ALBUM_DATA__ = {
      {
       "type": "p",
       "text": "I went inside, I shut the doors and windows! I didn’t want to hear anything else! I could have died from sorrow! For two days I was beside myself; I couldn’t eat or drink. Such emotion! I’m such an old woman [...] I haven’t felt it again.",
-      "q": 1
+      "q": 2
      },
      {
       "type": "source",
@@ -1776,7 +1778,8 @@ window.__ALBUM_DATA__ = {
      },
      {
       "type": "p",
-      "text": "He then continued teasing the groom:"
+      "text": "He then continued teasing the groom:",
+      "q": 1
      },
      {
       "type": "verse",
@@ -3323,10 +3326,10 @@ window.__ALBUM_DATA__ = {
    },
    {
     "src": "images/songs/09b.jpg",
-    "w": 1400,
-    "h": 938,
+    "w": 1072,
+    "h": 836,
     "el": "Αριστερά προς δεξιά: Αντρέας Χρίστου Πιττιρής, Aδάμος Στάθη Κουζαρίδης",
-    "en": "Left to right: Andreas Christou Pittiris and Αdamos Stathi Kouzarides",
+    "en": "Left to right: Andreas Christou Pittiris and Adamos Stathi Kouzarides",
     "at": 5
    }
   ],
@@ -3369,10 +3372,10 @@ window.__ALBUM_DATA__ = {
   "song-15": [
    {
     "src": "images/songs/15a.jpg",
-    "w": 1400,
-    "h": 1018,
+    "w": 680,
+    "h": 874,
     "el": "Νεόφυτος Χατζ̆ηνικηφόρου «Σ̆ίσ̆ης»",
-    "en": "Neofytos Ηadjinikiforou (Shishis)",
+    "en": "Neofytos Hadjinikiforou (Shishis)",
     "at": 5
    },
    {
@@ -3397,16 +3400,16 @@ window.__ALBUM_DATA__ = {
     "src": "images/songs/16c.jpg",
     "w": 951,
     "h": 1400,
-    "el": "Παναγιώτης Παναγιώτου με την γυναίκα του Ελένη Παναγιώτου",
-    "en": "Panayiotis Panayiotou with his wife Eleni Panayiotou",
+    "el": "Παναγιώτης Παναγιώτου",
+    "en": "Panayiotis Panayiotou",
     "at": 9
    },
    {
     "src": "images/songs/16d.jpg",
     "w": 1118,
     "h": 1400,
-    "el": "Παναγιώτης Παναγιώτου",
-    "en": "Panayiotis Panayiotou",
+    "el": "Παναγιώτης Παναγιώτου με την γυναίκα του Ελένη Παναγιώτου",
+    "en": "Panayiotis Panayiotou with his wife Eleni Panayiotou",
     "at": 9
    },
    {

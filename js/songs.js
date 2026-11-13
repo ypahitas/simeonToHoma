@@ -79,8 +79,10 @@
       // q: an interview passage, inset on both sides as in the booklet (2: dialogue inside one)
       if (b.type === 'p') out.push('<p'+(b.q ? ' class="q'+(b.q > 1 ? ' q2' : '')+'"' : '')+'>'+withNotes(b.text, id, l, used)+'</p>');
       else if (b.type === 'heading') out.push('<h4'+(b.anchor ? ' id="'+id+'-'+b.anchor+(l==='en'?'-en':'')+'"' : '')+'>'+fmt(b.text)+'</h4>');
+      // verse lines are centred, as in the booklet; an empty line is a gap between couplets
       else if (b.type === 'verse') b.lines.forEach(function(ln, k){
-        var cls = 'verse' + (k===0 ? ' vs' : '') + (k===b.lines.length-1 ? ' ve' : '');
+        if (!ln) return;
+        var cls = 'verse' + (k===0 ? ' vs' : '') + (k===b.lines.length-1 || !b.lines[k+1] ? ' ve' : '');
         out.push('<p class="'+cls+'">'+withNotes(ln, id, l, used)+'</p>');
       });
     });

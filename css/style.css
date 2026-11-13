@@ -171,7 +171,8 @@ main{display:block}
 .text p.q2{margin-left:4rem;margin-right:4rem}
 @media (max-width:600px){.text p.q{margin-left:1.1rem;margin-right:1.1rem}.text p.q2{margin-left:2.2rem;margin-right:2.2rem}}
 .text h4{font-weight:700;font-size:1.25rem;color:var(--accent);margin:2.6rem 0 .9rem;text-decoration:underline;text-underline-offset:.25em;text-decoration-thickness:1px}
-.text .verse{margin:0 0 0 1.5rem;font-style:italic;font-size:1.05rem;line-height:1.5}
+/* verse in the notes: each line centred, as in the booklet */
+.text .verse{margin:0;text-align:center;font-style:italic;font-size:1.05rem;line-height:1.5}
 .text .verse.vs{margin-top:.2rem}
 .text .verse.ve{margin-bottom:1.3rem}
 .text .srcs{margin:1.8rem 0 1.4rem}
