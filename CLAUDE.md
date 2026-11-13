@@ -20,6 +20,7 @@ Keep the text verbatim. It is in Cypriot dialect; spellings that look like typos
 - **Single-page layout** (chosen 16 Oct): `index.html` has a sticky bar, the ochre cover band, "Ο δίσκος" (the intro note; the artists column was removed on 13 Nov), the two-column song index, the song reader (one song at a time, routed by `#song-N`, credits in a sticky left column), then the sections Συντελεστές, Ευχαριστίες, Φωτογραφίες and Επικοινωνία, and the footer. Menu order: Ο δίσκος, Τραγούδια, Συντελεστές, Ευχαριστίες, Φωτογραφίες, Επικοινωνία. Below 860px the menu collapses to ☰ (six links don't fit on one line above that).
 - `songs.html`, `contributors.html` and `contact.html` are only redirects to `index.html#…`, so old links keep working.
 - **Lyrics are bold, not italic** (owner's request). In English mode each Greek stanza is followed by its English translation in lighter text; in Greek mode only the Greek shows.
+- **Releases** (decided 13 Nov): two singles come out before the album, and the site follows them, one version live at a time, all from `main` (no release branches). `js/release.js` sets `RELEASE` to `single1` (intro, song 6 «Τα στεφανώματα», contact), `single2` (intro, song 6 plus a second song still to be decided, contact) or `full`. Moving to the next release is a one-line commit. Unreleased songs are only hidden; their text is still in `album-data.js`, which the owner is fine with.
 - **Ordinals in song credits** (1ο, 3η, 1st, 2nd…) are shown with the ending in superscript. This is done at render time in `songs.js` (`ordinals()`); the data stays plain.
 
 ## How the code works
@@ -32,7 +33,8 @@ Keep the text verbatim. It is in Cypriot dialect; spellings that look like typos
   - `lyrics[id]`: Greek stanzas (lists of lines); `lyricsEn[id]`: English, **one stanza per Greek stanza** (five songs needed hand grouping because the translation breaks lines differently: 2, 6, 10, 14, 15). `lyricNotes` / `lyricNotesEn`: lyric footnotes, numbered per song. `lyricsCentered[id]`: indexes of stanzas set as a centred couplet (only song 16's last couplet).
   - `photos[id]`: `[{src, w, h, el, en, at}]`; `at` is the index of the Greek body item the photo goes before. English placement is proportional to the English body (the texts differ in length), and a photo never goes between a line ending in ":" and the quote it introduces.
   - `el.intro` / `en.intro` mirror the intro paragraphs but are not rendered; the intro shown is the static HTML in `index.html`.
-- `js/songs.js`: builds the song index and all 17 articles (both languages in the DOM) and handles routing: `#song-N`, `#song-N-fnM`, `#song-N-lfnM` (lyric note) show that song; anything else shows the main page.
+- `js/release.js` (loaded in `<head>`): sets `window.__RELEASE__ = {name, songs}` (`songs` is null for the full album) and adds `html.partial` for a single. `?release=full|single1|single2` overrides it for previewing. In partial mode CSS hides everything marked `data-full` (the Συντελεστές, Ευχαριστίες and Φωτογραφίες sections and their menu links) and shows `p.soon`, the "more coming" note under the song index; the pager of the last released song shows "More songs coming soon". The "N / 17" count and the song numbers stay as on the album.
+- `js/songs.js`: builds the song index and the articles of the current release's songs (both languages in the DOM) and handles routing: `#song-N`, `#song-N-fnM`, `#song-N-lfnM` (lyric note) show that song; anything else shows the main page.
 - `js/site.js`: language toggle (`html[data-lang]`, saved in localStorage as `site-lang`, default `el`; the inline script in `index.html` sets it before first paint, and `?lang=en` works), the ochre `.bar.solid` header after the cover scrolls away, the copyright popup (`<dialog id="legal">`, opened from the footer link), and the mobile menu.
 - Static HTML in `index.html`: intro note, Συντελεστές (separate `lang="el"` and `lang="en"` blocks, built from booklet pp. 10–11 and the contributors docx), Ευχαριστίες (dedication «Στον παπάν μου, Σπύρον (1954-2011)» on top; the English dedication is Claude's translation), Φωτογραφίες (gallery of `images/interviews/`, captions from the zip index), contact, footer and the legal dialog.
 - Bilingual text uses paired `lang="el"` / `lang="en"` elements, toggled by the rules at the top of `css/style.css`. `.lyrics[lang="el"]` is exempt, so the Greek lyrics show in English mode too.
@@ -69,6 +71,7 @@ History of attempts:
 3. **Booklet styling thread** (16 Oct 2026). Matched the site to the designer's PDF draft 4, built Alegreya Choman ("first styling draft").
 4. **Single-page layout** (16 Oct 2026, Claude Code). Rebuilt on the single-page prototype ("single page layout", then "contributors rename, remove cover button", "orange header").
 5. **Booklet draft 8** (12 Nov 2026, Claude Code). Commit "booklet draft 8 text, translation, photos": all Greek from draft 8 (titles, credits, notes, sources, per-song footnotes, lyrics for all 17 songs), English from the artist's Word files (replacing Claude's translation), new Ευχαριστίες and Φωτογραφίες sections, rebuilt Συντελεστές, copyright popup, track photos inside the songs, ornaments extracted, name switched to Symeon, lyrics made upright, superscript ordinals in credits, song 16's centred couplet. Then the nav bar title was lowercased to "το χώμαν".
+6. **Single releases** (13 Nov 2026, Claude Code). Added `js/release.js` and the "more coming" notes; site set to the full album for now.
 
 ## Open items
 
@@ -79,7 +82,8 @@ History of attempts:
 - **Caption differences** between the photo index and the booklet: photo 23 (Μαργαρίτα "αριστερά" in the index, "δεξιά" in the booklet; the index was used), photo 17 ("Μαζί με" vs "Με"). The interview-section subtitle fixes the booklet's misspelling "συνεντέυξεις".
 - **English spellings** follow the translator and sometimes differ from captions or credits (e.g. "Pittyris" in the text, "Pittiris" in captions; "Nicoletta Demetriou" vs Greek "Νικολέττα Δημητρίου").
 - The ornaments in `images/ornaments/` are not used yet; they could replace or vary the two section ornaments.
-- Social-preview (Open Graph) tags once the domain is known; a desktop TTF of Alegreya Choman for the designer's InDesign work.
+- **Second single:** not chosen yet; add its id to `single2` in `js/release.js`. The "more coming" wording (Greek and English) is Claude's; the owner may want to change it.
+- Social-preview (Open Graph) tags (probably different per release) once the domain is known; a desktop TTF of Alegreya Choman for the designer's InDesign work.
 
 ## Workflow
 

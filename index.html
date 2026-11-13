@@ -7,6 +7,7 @@
 <meta name="description" content="Το χώμαν: παραδοσιακά τραγούδια της Κύπρου. To Homan: traditional songs of Cyprus by Symeon Mercouris and Stelios Papamichael.">
 <link rel="preload" href="fonts/alegreya-choman-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
+<script src="js/release.js"></script>
 <script>
   // Set the language before first paint, so the page doesn't flash in the wrong one.
   (function(){
@@ -25,9 +26,9 @@
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#album"><span lang="el">Ο δίσκος</span><span lang="en">The album</span></a>
       <a href="#songs"><span lang="el">Τραγούδια</span><span lang="en">Songs</span></a>
-      <a href="#contributors"><span lang="el">Συντελεστές</span><span lang="en">Contributors</span></a>
-      <a href="#thanks"><span lang="el">Ευχαριστίες</span><span lang="en">Thanks</span></a>
-      <a href="#photos"><span lang="el">Φωτογραφίες</span><span lang="en">Photos</span></a>
+      <a href="#contributors" data-full><span lang="el">Συντελεστές</span><span lang="en">Contributors</span></a>
+      <a href="#thanks" data-full><span lang="el">Ευχαριστίες</span><span lang="en">Thanks</span></a>
+      <a href="#photos" data-full><span lang="el">Φωτογραφίες</span><span lang="en">Photos</span></a>
       <a href="#contact"><span lang="el">Επικοινωνία</span><span lang="en">Contact</span></a>
     </nav>
     <button class="lang" id="lang" type="button"><span lang="el" aria-label="Switch to English">EN</span><span lang="en" aria-label="Ανάγνωση στα ελληνικά">ΕΛ</span></button>
@@ -73,13 +74,14 @@
         <div class="listen"><span class="listen-label"><span lang="el">Ακούστε</span><span lang="en">Listen</span></span><a class="listen-link" data-listen="spotify" aria-label="Spotify" title="Spotify"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a><a class="listen-link" data-listen="youtube" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div>
       </div>
       <ol class="index" id="song-index"></ol>
+      <p class="soon"><span lang="el">Έρχονται κι άλλα τραγούδια. Ολόκληρος ο δίσκος, με τους συντελεστές και τις φωτογραφίες, κυκλοφορεί σύντομα.</span><span lang="en">More songs are on the way. The full album, with contributors and photos, is coming soon.</span></p>
     </section>
   </div>
 
   <div id="tracks"></div>
 
   <div class="page">
-    <section class="sec credits-sec" id="contributors">
+    <section class="sec credits-sec" id="contributors" data-full>
       <span class="orn a" aria-hidden="true"></span>
       <h2><span lang="el">Συντελεστές</span><span lang="en">Contributors</span></h2>
       <div lang="el">
@@ -114,7 +116,7 @@
       </div>
     </section>
 
-    <section class="sec thanks" id="thanks">
+    <section class="sec thanks" id="thanks" data-full>
       <span class="orn b" aria-hidden="true"></span>
       <p class="dedication"><span lang="el">Στον παπάν μου, Σπύρον (1954-2011)</span><span lang="en">To my father, Spyros (1954–2011)</span></p>
       <h2><span lang="el">Ευχαριστίες</span><span lang="en">Acknowledgements</span></h2>
@@ -136,7 +138,7 @@
       </div>
     </section>
 
-    <section class="sec photos" id="photos">
+    <section class="sec photos" id="photos" data-full>
       <span class="orn a" aria-hidden="true"></span>
       <h2><span lang="el">Φωτογραφίες</span><span lang="en">Photos</span></h2>
       <p class="side lead"><span lang="el">Στιγμιότυπα από τις συνεντεύξεις (2024 - 2026)</span><span lang="en">Moments from the interviews (2024 - 2026)</span></p>

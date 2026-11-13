@@ -19,6 +19,9 @@
   function linkify(h){ return h.replace(/https?:\/\/[^\s<]+/g, function(u){ return '<a href="'+u+'" rel="noopener">'+u+'</a>'; }); }
   function both(el, en){ return '<span lang="el">'+esc(el)+'</span><span lang="en">'+esc(en)+'</span>'; }
   function songData(l, i){ return DATA[l].songs[i]; }
+  // Only the songs of the current release (js/release.js) are built.
+  var REL = window.__RELEASE__ || {};
+  var LIST = DATA.meta.filter(function(m){ return !REL.songs || REL.songs.indexOf(m.id) > -1; });
 
   function withNotes(text, id, l, used){
     return fmt(text).replace(/\[\^(\d+)\]/g, function(m, n){
@@ -123,16 +126,19 @@
       lyricNotes(id, 'en', usedEn, (DATA.lyricNotesEn && DATA.lyricNotesEn[id]) || {})+'</div>';
   }
 
-  function pager(i){
-    var prev = DATA.meta[i-1], next = DATA.meta[i+1];
+  // k: position in LIST, so the pager only links released songs
+  function pager(k){
+    var prev = LIST[k-1], next = LIST[k+1];
     return '<nav class="pager" aria-label="tracks">'+
       (prev ? '<a class="pn prev" href="#'+prev.id+'">'+both(prev.title_el, prev.title_en)+'</a>' : '<span></span>')+
-      (next ? '<a class="pn next" href="#'+next.id+'">'+both(next.title_el, next.title_en)+'</a>' : '<span></span>')+
+      (next ? '<a class="pn next" href="#'+next.id+'">'+both(next.title_el, next.title_en)+'</a>'
+        // a single release: say more is coming where the next song would be
+        : REL.songs ? '<span class="pn soon">'+both('Έρχονται κι άλλα τραγούδια', 'More songs coming soon')+'</span>' : '<span></span>')+
       '</nav>';
   }
 
-  function track(m, i){
-    var id = m.id, total = DATA.meta.length;
+  function track(m, k){
+    var i = DATA.meta.indexOf(m), id = m.id, total = DATA.meta.length;
     var text = '', cr = '', fns = '';
     // Photos are placed by their position in the Greek text (as in the booklet);
     // the English text is laid out differently, so it gets the same relative spot.
@@ -160,14 +166,14 @@
       '<h3 id="'+id+'-h">'+both(songData('el', i).title, songData('en', i).title)+'</h3></header>'+
       '<div class="spread"><aside class="credits"><ul>'+cr+'</ul></aside>'+
       '<div class="text">'+lyrics(id)+text+fns+'</div></div>'+
-      pager(i)+'</article>';
+      pager(k)+'</article>';
   }
 
-  document.getElementById('song-index').innerHTML = DATA.meta.map(function(m){
+  document.getElementById('song-index').innerHTML = LIST.map(function(m){
     return '<li><a href="#'+m.id+'"><span class="no">'+m.n+'</span>'+
       '<span class="tt" lang="el">'+esc(m.title_el)+'</span><span class="tt" lang="en">'+esc(m.title_en)+'</span></a></li>';
   }).join('');
-  document.getElementById('tracks').innerHTML = DATA.meta.map(track).join('\n');
+  document.getElementById('tracks').innerHTML = LIST.map(track).join('\n');
 
   // Routing: #song-N (or a footnote inside it, #song-N-fnM) shows that song;
   // anything else shows the main page.
