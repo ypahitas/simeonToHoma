@@ -205,7 +205,8 @@ html.partial [data-full]{display:none!important}
 p.soon{display:none}
 html.partial p.soon{display:block;margin:2rem 0 0;font-style:italic;color:var(--accent);font-size:1.1rem}
 .pn.soon{font-weight:400;font-style:italic;text-align:right}
-html.partial .contact .orn{--m:url("../images/ornament-leaves.png")}  /* follows Songs, which has the flower */
+html.partial .buy .orn{--m:url("../images/ornament-leaves.png")}  /* follows Songs, which has the flower */
+html.partial .contact .orn{--m:url("../images/ornament-flower.png")}
 
 /* ---------- contributors ---------- */
 .people{list-style:none;margin:0;padding:0;display:grid;gap:1.1rem 2.5rem;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr))}
