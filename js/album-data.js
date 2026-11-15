@@ -897,7 +897,7 @@ window.__ALBUM_DATA__ = {
      "2": "Τεύκρος Ανθίας, «Λαϊκά θέματα: Kυπριακή λαογραφία: Oι κυπριακές φωνές», Εφημερίδα Νέος Δημοκράτης, Τεύχος 20, Νοέμβριος 1949.",
      "3": "Τζ̆είνος που έφκαλλεν λάκκους του νερού.",
      "4": "Ο μέγας ευρωπαικός πόλεμος (γύρω στο 1920), Το τραγικόν δυστύχημα των δύο αποθρακωθέντων, Ελένης και Χρυσταλλούς, θυγατέρων του παπά-Παντελή Παπαχαραλάμπους εκ του χωρίου Σωτήρας, γενόμενον την 5 Δεκεμβρίου (1926), Ποίημα Τσ̆αττίσματος (Κούβαρος – Πεσκέσ̆ης, 1934).",
-     "5": "Βλ. υποσημείωση 1 στο «Τα στεφανώματα (Συρτός παφίτικος)» (σ. 40) για το πώς χρησιμοποιείται δαμαί ο όρος «τραουδιστής».",
+     "5": "Βλ. {a song-6-fn1}υποσημείωση 1{/a} στο «{a song-6}Τα στεφανώματα (Συρτός παφίτικος){/a}» για το πώς χρησιμοποιείται δαμαί ο όρος «τραουδιστής».",
      "6": "Μπαστούνι.",
      "7": "Περιοχή με πετρώδες τζ̆αι σκληρόν έδαφος."
     }
@@ -1821,7 +1821,7 @@ window.__ALBUM_DATA__ = {
      }
     ],
     "notes": {
-     "21": "See footnote 2."
+     "21": "See {a song-5-fn2-en}footnote 2{/a}."
     }
    },
    {
@@ -2139,9 +2139,9 @@ window.__ALBUM_DATA__ = {
      "22": "It was also recorded in this form by Giorgos Kkiamilos (violin) and Xenis Liontaris (laouto), during Notopoulos’s field recordings in Kyrenia in 1953.",
      "23": "Teukros Anthias, “Folk Themes: Cypriot folklore: The Cypriot Tunes” New Democrat, 20 November 1949",
      "24": "The Great European War(c. 1920); The Tragic Accident of the Two Burnt Victims, Eleni and Chrystallou, Daughters of Papa-Pantelis Papacharalambous from the Village of Sotira, Which Took Place on 5 December (1926); Tsattisma Poem (Kouvaros–Peskesis, 1934).",
-     "25": "See footnote 3 for an explanation of how the term “singer” is used here.",
-     "26": "See fn. 10",
-     "27": "See fn. 11."
+     "25": "See {a song-6-fn3-en}footnote 3{/a} for an explanation of how the term “singer” is used here.",
+     "26": "See {a song-6-fn13-en}fn. 13{/a}.",
+     "27": "See {a song-6-fn14-en}fn. 14{/a}."
     }
    },
    {
@@ -2242,7 +2242,7 @@ window.__ALBUM_DATA__ = {
      }
     ],
     "notes": {
-     "28": "Here Antonis means the Komitissa Tune. See the explanatory notes for track 7 as regards the confusion as to the name of this Tune.",
+     "28": "Here Antonis means the Komitissa Tune. See the explanatory notes for {a song-7}track 7{/a} as regards the confusion as to the name of this Tune.",
      "29": "A person with {i}meráki {/i}– someone passionate and wholehearted in what they do."
     }
    },
@@ -2325,7 +2325,7 @@ window.__ALBUM_DATA__ = {
     ],
     "notes": {
      "30": "Menelaos N. Christodoulou and K. D. Ioannidis (eds.), {i}Cypriot Folk Songs{/i} (1987).",
-     "31": "See fn. 11",
+     "31": "See {a song-6-fn14-en}fn. 14{/a}.",
      "32": "Athanasios Sakellarios, {i}Ta Kypriaka: That Is, the Geography, History and Language of the Island of Cyprus from Ancient Times to the Present Day {/i}(1891)",
      "33": "G. H. Papacharalambous, {i}Cypriot Customs and Traditions{/i} (1965)"
     }
@@ -2610,7 +2610,7 @@ window.__ALBUM_DATA__ = {
   ],
   "song-2": [
    [
-    "Έσ̆ει βρυάδες[^1] στον γιαλόν,",
+    "Έσ̆ει βρυάδες[^1] στον γιαλόν",
     "έσ̆ει καραβια στον γιαλόν, δεκαοχτώ βρυάδες",
     "άλλα πάνε τζ̆’ άλλα ’ρχονται τζ̆’ άλλα χαπάρια φέρνουν",
     "τζ̆αι ο λεβέντης Κύπριος, τ’ όνομαν του Γιαννάκης",
@@ -2763,9 +2763,7 @@ window.__ALBUM_DATA__ = {
     "τζ̆’ αντάν να την αθθυμηθώ φκαίννω τα μονοβούριν"
    ],
    [
-    "Τα κόκκαλα μου να γενούν κανιά σαν την ανέμην[^1]"
-   ],
-   [
+    "Τα κόκκαλα μου να γενούν κανιά σαν την ανέμην[^1]",
     "εν παραιτώ που λλόου σου, ωρή καταραμένη"
    ]
   ],
@@ -3429,7 +3427,7 @@ window.__ALBUM_DATA__ = {
     "and may the master of the house live a thousand years"
    ],
    [
-    "I will turn the mountains of Karamania into a sheepfold,",
+    "I will turn the mountains of Karamania into a sheepfold",
     "so that my love and I may lay there and I will not leave her in peace"
    ],
    [
@@ -3459,7 +3457,7 @@ window.__ALBUM_DATA__ = {
     "And at once the captain gave him leave to go ashore",
     "“Bring me my horse, saddled and bridled”",
     "they bring him his horse, saddled and bridled",
-    "“Bring my sweetly playing violin,",
+    "“Bring my sweetly playing violin",
     "the one that used to wake the birds at dawn whenever I played it”"
    ],
    [
@@ -3539,11 +3537,11 @@ window.__ALBUM_DATA__ = {
     "the springs had all run dry; how could I leave him thirsty?",
     "At the Euphrates River there was a beautiful spring",
     "my horse was thirsty, so I went to water him there",
-    "the Saracen saw me and would not yield,",
+    "the Saracen saw me and would not yield",
     "for he would not let even a flying bird land there",
     "the Saracen is a dragon, one of those great ones",
     "I have heard it from many people and especially from learned men",
-    "I stood there thinking how should I greet him,",
+    "I stood there thinking how should I greet him",
     "approach him courteously and win his favour"
    ],
    [
@@ -3583,7 +3581,7 @@ window.__ALBUM_DATA__ = {
     "those who lead the best lives are the drunkards"
    ],
    [
-    "If you cast a spark into the sea and see it catch fire,",
+    "If you cast a spark into the sea and see it catch fire",
     "then, only then, my love for you will finally cease to burn"
    ],
    [
@@ -3595,9 +3593,7 @@ window.__ALBUM_DATA__ = {
     "whenever I think of her, I reach their peak or trough in a single leap"
    ],
    [
-    "Even if my bones are worn away and become as thin as a yarn swift"
-   ],
-   [
+    "Even if my bones are worn away and become as thin as a yarn swift",
     "I will not give up on you, oh you cursed woman"
    ]
   ],
@@ -3849,7 +3845,7 @@ window.__ALBUM_DATA__ = {
     "then turn and bring it back again without resting"
    ],
    [
-    "Ever since the day I lost you,",
+    "Ever since the day I lost you",
     "I have never laughed, nor known a moment’s joy",
     "and the dark hours that pass",
     "are taking my life away and they seem to me like years"

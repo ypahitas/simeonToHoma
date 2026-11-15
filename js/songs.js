@@ -103,20 +103,20 @@
 
   // Lyrics: the Greek always shows; in English mode each Greek stanza is followed
   // by its translation (DATA.lyricsEn, one stanza per Greek stanza). Each language
-  // has its own lyric footnotes (#song-N-lfnM and #song-N-lfnM-en).
+  // has its own lyric footnotes (#song-N-lfnM and #song-N-lfnM-en). In English mode
+  // only the English notes show: the Greek markers and notes carry lang="el".
   function lyricLines(lines, id, l, used){
     var suf = l === 'en' ? '-en' : '';
     return lines.map(function(ln){
       return fmt(ln).replace(/\[\^(\d+)\]/g, function(m, n){
         if (used.indexOf(n) < 0) used.push(n);
-        return '<sup class="fn"><a href="#'+id+'-lfn'+n+suf+'" aria-label="'+STR[l].note+n+'">'+n+'</a></sup>';
+        return '<sup class="fn" lang="'+l+'"><a href="#'+id+'-lfn'+n+suf+'" aria-label="'+STR[l].note+n+'">'+n+'</a></sup>';
       });
     }).join('<br>');
   }
   function lyricNotes(id, l, used, own){
     var suf = l === 'en' ? '-en' : '';
-    // Greek lyric notes show in both languages, like the Greek lyrics themselves
-    return used.length ? '<ol class="notes"'+(l === 'en' ? ' lang="en"' : '')+'>'+used.map(function(n){
+    return used.length ? '<ol class="notes" lang="'+l+'">'+used.map(function(n){
       return '<li id="'+id+'-lfn'+n+suf+'" value="'+n+'">'+fmt(own[n]||'')+'</li>';
     }).join('')+'</ol>' : '';
   }
