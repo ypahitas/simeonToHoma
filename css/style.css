@@ -233,6 +233,8 @@ html.partial .contact .orn{--m:url("../images/ornament-flower.png")}
 /* ---------- buy ---------- */
 .buy .prose p{margin:0 0 .8rem;text-align:left;hyphens:manual}
 .buy .ship{color:var(--accent)}
+/* the expected release date stands out a little */
+.buy .prose p.release{margin:1.1rem 0 1.2rem;padding:.55rem 0 .55rem 1rem;border-left:3px solid var(--accent);font-weight:700;color:var(--ink)}
 .buy-btns{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:1.8rem 0 .8rem}
 .btn{display:inline-block;padding:.7rem 1.6rem;background:var(--accent);color:var(--paper);
   font-size:1.15rem;text-decoration:none;border-radius:2px;transition:background .2s}
