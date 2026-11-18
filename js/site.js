@@ -26,10 +26,12 @@
   }
 
   // Spotify / YouTube icons (by the Songs heading and in the footer).
-  // Paste the album's links here; until then the icons show but go nowhere.
+  // An empty link leaves its icon showing but going nowhere.
+  // Now: the first single (Spotify release, YouTube video). For the full
+  // album: the album on Spotify and the YouTube playlist.
   var LISTEN_LINKS = {
-    spotify: '',   // e.g. https://open.spotify.com/album/…
-    youtube: ''    // e.g. https://www.youtube.com/playlist?list=…
+    spotify: 'https://open.spotify.com/album/0S6rCgRkiGk5EVWoqZEGOI',
+    youtube: 'https://www.youtube.com/watch?v=XGF_QMb56l0'
   };
   [].forEach.call(document.querySelectorAll('[data-listen]'), function(a){
     var url = LISTEN_LINKS[a.getAttribute('data-listen')];
