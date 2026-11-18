@@ -238,7 +238,7 @@ window.__ALBUM_DATA__ = {
     "title": "Τα στεφανώματα (Συρτός παφίτικος)",
     "credits": [
      "Μουσική: Παραδοσιακή· διασκευή Συμεών Μερκούρη",
-     "Στίχοι: Παραδοσιακοί· σύμφωνα με την ερμηνεία του Αντώνη Χατζ̆ηαχιλλέως (1η και 2η στροφή), Ξενή Πάτσαλου (4η στροφή), Παύλου Πιττάτζ̆η (3η στροφή)",
+     "Στίχοι: Παραδοσιακοί· σύμφωνα με την ερμηνεία του Αντώνη Χατζ̆ηαχιλλέως (1η και 2η στροφή), Παύλου Πιττάτζ̆η (3η στροφή), Ξενή Πάτσαλου (4η στροφή)",
      "Φωνή: Στέλιος Παπαμιχαήλ",
      "Δεύτερες φωνές: Συμεών Μερκούρης, Παύλος Μιχαηλίδης",
      "Βιολί: Παύλος Μιχαηλίδης",
@@ -1387,7 +1387,7 @@ window.__ALBUM_DATA__ = {
     "title": "The crowning (stefanomata) (Syrtos from Paphos)",
     "credits": [
      "Music: Traditional; arrangement by Symeon Mercouris",
-     "Lyrics: Traditional; based on the performance by Antonis Hadjiachilleos as transcribed by Kallinikos (1st and 2nd stanzas); Xenis Patsalos (4th stanza) and Pavlos Pittatzis (3rd stanza)",
+     "Lyrics: Traditional; based on the performance by Antonis Hadjiachilleos as transcribed by Kallinikos (1st and 2nd stanzas); Pavlos Pittatzis (3rd stanza) and Xenis Patsalos (4th stanza)",
      "Vocals: Stelios Papamichael",
      "Backing vocals: Symeon Mercouris, Pavlos Michaelides",
      "Violin: Pavlos Michaelides",
