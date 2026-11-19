@@ -3228,8 +3228,8 @@ window.__ALBUM_DATA__ = {
    },
    {
     "src": "images/songs/01b.jpg",
-    "w": 1284,
-    "h": 877,
+    "w": 1400,
+    "h": 954,
     "el": "Οικογένεια Tζ̆ιαννή Πουλλή. O Aντώνης Πουλλής τρίτος από αριστερά. Αριστερά προς δεξιά: Γιώργος Πουλλής, Σολωμής Πουλλής, Αντώνης Πουλλής, Λίζα Πουλλή Χατζηχάννα, Μαριάννα Πουλλή, Μιχάλης Πουλλής και Τζ̆ιαννής Πουλλής",
     "en": "Τziannis Poullis’ family. Αntonis Poullis third from the left. Left to right: Giorgos Poullis, Solomis Poullis, Antonis Poullis, Liza Poulli Hatzihannas, Marianna Poulli, Michalis Poullis and Tziannis Poullis",
     "at": 2
@@ -3237,17 +3237,19 @@ window.__ALBUM_DATA__ = {
   ],
   "song-2": [
    {
-    "src": "images/songs/02a.jpg",
+    "src": "images/songs/02a.webp",
     "w": 1400,
-    "h": 983,
+    "h": 970,
+    "cut": true,
     "el": "Λευτέρης Οικονόμου «Στέκκος» (αριστερά) και ο αδελφός του, Λουκάς Οικονόμου (δεξιά)",
     "en": "Lefteris Oikonomou (Stekkos) (left) and his brother, Loukas Oikonomou (right)",
     "at": 4
    },
    {
-    "src": "images/songs/02b.jpg",
+    "src": "images/songs/02b.webp",
     "w": 1400,
-    "h": 1376,
+    "h": 1369,
+    "cut": true,
     "el": "Στέκκος χορεύει. Χριστάκης Πιττιρής (βιολί), Λευτέρης Μέρτακκας «Λευτεράς» (λαούτο) και Γεώργιος Ευσταθίου «Φόρσος» (ακκορντεόν)",
     "en": "Stekkos dancing. Christakis Pittiris (violin), Lefteris Mertakkas “Lefteras” (lute) and Georgios Efstathiou “Forsos” (accordion)",
     "at": 7
@@ -3255,24 +3257,26 @@ window.__ALBUM_DATA__ = {
   ],
   "song-6": [
    {
-    "src": "images/songs/06a.jpg",
+    "src": "images/songs/06a.webp",
     "w": 1400,
-    "h": 983,
+    "h": 981,
+    "cut": true,
     "el": "Αντώνης Χ'Αχιλλέως «Βλόκκος» (βιολί) και Χριστάκης από Άρμου «Ρουσσής» ή «Διπλόσ̆ειλος» (λαούτο)",
     "en": "Antonis Hadjiachilleos “Vlokkos” (violin) and Christakis from Armou “Roussis” or “Diplosheilos” (lute)",
     "at": 3
    },
    {
-    "src": "images/songs/06b.jpg",
-    "w": 907,
+    "src": "images/songs/06b.webp",
+    "w": 896,
     "h": 1400,
+    "cut": true,
     "el": "Αντώνης Χ'Αχιλλέως με την γυναίκα του Ελένη Πιστέντη",
     "en": "Αntonis Hadjiachilleos with his wife Eleni Pistenti",
     "at": 9
    },
    {
     "src": "images/songs/06c.jpg",
-    "w": 1017,
+    "w": 977,
     "h": 1400,
     "el": "Ξενής Πάτσαλος",
     "en": "Xenis Patsalos",
@@ -3281,7 +3285,7 @@ window.__ALBUM_DATA__ = {
    {
     "src": "images/songs/06d.jpg",
     "w": 1400,
-    "h": 1013,
+    "h": 1011,
     "el": "Παύλος Πιττάτζ̆ης",
     "en": "Pavlos Pittatzis",
     "at": 30
@@ -3289,14 +3293,14 @@ window.__ALBUM_DATA__ = {
    {
     "src": "images/songs/06e.jpg",
     "w": 1400,
-    "h": 995,
+    "h": 1008,
     "el": "Στον καφενέ του Πυλιώτη. Χορεύει ο Γιώργος Μάγκας (μπροστά). Ταίρι του στον χορό ο Παύλος Πιττάτζης (πίσω). Λευτέρης Μέρτακκας (λαούτο).",
     "en": "Αt Pyliotis’ coffeehouse. Giorgos Magkas is dancing (foreground). His dancing partner is Pavlos Pittatzis (background). Lefteris Mertakkas (lute).",
     "at": 32
    },
    {
     "src": "images/songs/06f.jpg",
-    "w": 999,
+    "w": 960,
     "h": 1400,
     "el": "Ο Παύλος Πιττάτζης (δεξιά) με τους φίλους του Ξενή Τσιερκέζου «Ξενιάς» (κέντρο) και Γιώργο Καλημέρα (αριστερά)",
     "en": "Pavlos Pittatzis (right) with his friends Xenis Tsierkezou “Xenias” (centre) and Giorgos Kalimeras (left)",
@@ -3306,7 +3310,7 @@ window.__ALBUM_DATA__ = {
   "song-7": [
    {
     "src": "images/songs/07.jpg",
-    "w": 828,
+    "w": 933,
     "h": 1400,
     "el": "Τζιαννής Πουλλής",
     "en": "Τziannis Poullis",
@@ -3317,15 +3321,15 @@ window.__ALBUM_DATA__ = {
    {
     "src": "images/songs/09a.jpg",
     "w": 1400,
-    "h": 1113,
+    "h": 1089,
     "el": "Αντρέας Χρίστου Πιττιρής (λαούτο) και Αντώνης Αρτυματάς «Κελέφτας» (βιολί)",
     "en": "Αndreas Christou Pittiris (lute) and Antonis Artymatas “Keleftas” (violin)",
     "at": 5
    },
    {
     "src": "images/songs/09b.jpg",
-    "w": 1072,
-    "h": 836,
+    "w": 1400,
+    "h": 1089,
     "el": "Αριστερά προς δεξιά: Αντρέας Χρίστου Πιττιρής, Aδάμος Στάθη Κουζαρίδης",
     "en": "Left to right: Andreas Christou Pittiris and Adamos Stathi Kouzarides",
     "at": 5
@@ -3334,7 +3338,7 @@ window.__ALBUM_DATA__ = {
   "song-12": [
    {
     "src": "images/songs/12a.jpg",
-    "w": 990,
+    "w": 967,
     "h": 1400,
     "el": "Νικόλας Κούβαρος",
     "en": "Nikolas Kouvaros",
@@ -3352,8 +3356,8 @@ window.__ALBUM_DATA__ = {
   "song-14": [
    {
     "src": "images/songs/14a.jpg",
-    "w": 1284,
-    "h": 1196,
+    "w": 1400,
+    "h": 1243,
     "el": "Γάμος στην Αγιά Μαρίνα. Μπροστά δεξιά προς αριστερά: Τζ̆ιαννής Πουλλής (λαούτο), Αντώνης Πουλλής (του Τζ̆ιαννή), Αντώνης Πουλλής (του Πίσσα), Αντώνης Πουλλής (του Γιώρκου), Αντώνης Παύλου και Γιάννης Πίπης από το Αργάκι Μόρφου (βιολί)",
     "en": "Wedding in Ayia Marina. Front row from right to left: Tziannis Poullis (lute), Antonis Poullis (of Tziannis), Antonis Poullis (of Pissas), Antonis Poullis (of Giorgos), Antonis Pavlou and Giannis Pipis from Argaki Morfou (violin)",
     "at": 3
@@ -3370,8 +3374,8 @@ window.__ALBUM_DATA__ = {
   "song-15": [
    {
     "src": "images/songs/15a.jpg",
-    "w": 680,
-    "h": 874,
+    "w": 1085,
+    "h": 1400,
     "el": "Νεόφυτος Χατζ̆ηνικηφόρου «Σ̆ίσ̆ης»",
     "en": "Neofytos Hadjinikiforou (Shishis)",
     "at": 5
@@ -3388,7 +3392,7 @@ window.__ALBUM_DATA__ = {
   "song-16": [
    {
     "src": "images/songs/16b.jpg",
-    "w": 964,
+    "w": 933,
     "h": 1400,
     "el": "Παναγιώτης Παναγιώτου",
     "en": "Panayiotis Panayiotou",
@@ -3396,7 +3400,7 @@ window.__ALBUM_DATA__ = {
    },
    {
     "src": "images/songs/16c.jpg",
-    "w": 951,
+    "w": 933,
     "h": 1400,
     "el": "Παναγιώτης Παναγιώτου",
     "en": "Panayiotis Panayiotou",
@@ -3404,7 +3408,7 @@ window.__ALBUM_DATA__ = {
    },
    {
     "src": "images/songs/16d.jpg",
-    "w": 1118,
+    "w": 1108,
     "h": 1400,
     "el": "Παναγιώτης Παναγιώτου με την γυναίκα του Ελένη Παναγιώτου",
     "en": "Panayiotis Panayiotou with his wife Eleni Panayiotou",

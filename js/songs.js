@@ -44,12 +44,27 @@
     return h.replace(/(\d)(ο|η|ον|ης|st|nd|rd|th)(?![A-Za-zͰ-Ͽἀ-῿])/g, '$1<sup class="ord">$2</sup>');
   }
 
+  // Designer's rule for credits (18 Nov): a line may not break inside a person's
+  // name or leave an ordinal on its own. Non-breaking spaces join consecutive
+  // capitalised words (Συμεών Μερκούρη, Μιχάλης (Μισ̆ιέλλης) Πουλλής), an ordinal
+  // to the word after it (2η στροφή, 1η, 3η), "και/and" to the ordinal after it, and a
+  // middle dot to the word before it.
+  var CAP = 'A-ZΆΈΉΊΌΎΏΑ-Ϋ', NB = ' ';
+  var NAME = new RegExp('(^|\\s)(\\(?['+CAP+'][^\\s,;·.]*) (?=\\(?['+CAP+'])', 'g');
+  function keep(h){
+    var prev;
+    do { prev = h; h = h.replace(NAME, '$1$2'+NB); } while (h !== prev);
+    return h.replace(/(\d(?:ο|η|ον|ης|st|nd|rd|th),?) /g, '$1'+NB)
+      .replace(/(^|\s)(και|and) (?=\d)/g, '$1$2'+NB)
+      .replace(/ ·/g, NB+'·');
+  }
+
   function credits(l, list){
     return (list||[]).map(function(line){
       var i = line.indexOf(':');
       var inner = i > -1
-        ? '<span class="k">'+esc(line.slice(0, i+1))+'</span> <span class="v">'+ordinals(esc(line.slice(i+1).trim()))+'</span>'
-        : ordinals(esc(line));
+        ? '<span class="k">'+esc(line.slice(0, i+1))+'</span> <span class="v">'+ordinals(keep(esc(line.slice(i+1).trim())))+'</span>'
+        : ordinals(keep(esc(line)));
       return '<li lang="'+l+'">'+inner+'</li>';
     }).join('');
   }
@@ -60,9 +75,10 @@
   }
 
   // A photo with its caption in the current language.
+  // cut: the designer kept the print's uneven edge (a transparent .webp), so no placeholder background.
   function figure(p, l){
     var cap = esc(p[l] || p.el);
-    return '<figure class="ph'+(p.h > p.w ? ' tall' : '')+'"><img src="'+p.src+'" width="'+p.w+'" height="'+p.h+'" loading="lazy" alt="'+cap+'">'+
+    return '<figure class="ph'+(p.h > p.w ? ' tall' : '')+(p.cut ? ' cut' : '')+'"><img src="'+p.src+'" width="'+p.w+'" height="'+p.h+'" loading="lazy" alt="'+cap+'">'+
       '<figcaption>'+cap+'</figcaption></figure>';
   }
 
