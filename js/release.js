@@ -12,7 +12,7 @@
 
   var RELEASES = {
     single1: ['song-6'],              // Τα στεφανώματα
-    single2: ['song-6' /*, 'song-N' (to be decided) */],
+    single2: ['song-6', 'song-12'],   // + Φωνή Κοτροφίσιμη
     full: null                        // null = every song
   };
 
