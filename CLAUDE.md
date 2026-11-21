@@ -6,7 +6,7 @@ This file is the handoff for any new Claude session. Read it before changing any
 
 ## Sources of truth
 
-Since 12 Nov 2026 the site follows the designer's booklet and the artist's English files, all kept in the parent folder (`C:\Users\y.pahitas\Downloads\simeon`, outside the repo):
+Since 12 Nov 2026 the site follows the designer's booklet and the artist's English files. **None of them are in the repo** (it is public, and they are the unpublished booklet and the artist's own files), and as of 21 Nov they are no longer on the owner's machine either. Everything taken from them is already in the site's data; if a change needs a source again, ask the owner to send it:
 
 - **Greek:** `to homan draft8.pdf` (140 pages), the booklet. Greek text, lyrics, credits, photo captions, contributors page, thanks, dedication and the legal notice all come from it. It replaced the earlier Word file `Κείμενα Δίσκου «Το χώμαν» (ΝΔ - ΣΜ) 01-09-26.docx`.
 - **English:** the artist's own translation in `Kείμενα Δίσκου_το χώμαν_ΑΓΓΛΙΚΑ.docx` (intro and songs), `Στίχοι_το χώμαν ΑΓΓΛΙΚΑ.docx` (lyrics), `Συντελεστές Δίσκου_…ΑΓΓΛΙΚΑ.docx` (contributors), `Ευχαριστίες Δίσκου_…ΑΓΓΛΙΚΑ.docx` (thanks) and `Legal disclaimer + copyright_το χώμαν.docx`. It replaced Claude's earlier translation.
@@ -84,7 +84,7 @@ History of attempts:
 
 ## Open items
 
-- **Designer's files of 18 Nov** (`wetransfer_for-site_2026-11-18_1157.zip` in the parent folder): cover, photo crops and two interview recrops (`interviews/17.jpg`, `25.jpg`) are in. Not used yet: `to homan no text.jpg` (artwork without text), `to homan title.png` / `title caramel.png` (title lettering) and the 3000px Spotify square (Open Graph candidate). The designer asks to do any resizing/recomposition of artwork herself.
+- **Designer's files of 18 Nov** (`wetransfer_for-site_2026-11-18_1157.zip`, not in the repo; ask the owner or the designer): cover, photo crops and two interview recrops (`interviews/17.jpg`, `25.jpg`) are in. Not used yet: `to homan no text.jpg` (artwork without text), `to homan title.png` / `title caramel.png` (title lettering) and the 3000px Spotify square (Open Graph candidate). The designer asks to do any resizing/recomposition of artwork herself.
 - **Track numbering:** the index and song pages follow the booklet's two CDs (Δίσκος 1: songs 1–8, Δίσκος 2: 9–17, numbered per disc; `DISC1` in `songs.js`). The `#song-N` ids still run 1–17.
 - **Possible PDF typos left as-is** for the artist: "τζ̆ιαι Πόλην" (song 13 lyrics), "Συγεγκριμένα" (song 16), "εκουβένγκιασα" (intro); "Κάτω στη Ρόδον" on the song page vs "Κάτω στην Ρόδον" in the booklet's track list. Latin look-alike letters inside some Greek words (e.g. "Aντώνης" with a Latin A) are also as in the source.
 - **Caption differences** between the photo index and the booklet: photo 23 (Μαργαρίτα is "δεξιά"/"right", as in the booklet; owner confirmed 14 Nov), photo 17 ("Μαζί με" vs "Με"). The interview-section subtitle fixes the booklet's misspelling "συνεντέυξεις".
@@ -95,4 +95,4 @@ History of attempts:
 
 ## Workflow
 
-The owner works on Windows (`C:\Users\y.pahitas\Downloads\simeon\git`) and pushes to `main`. Commit messages are short and lowercase. Preview locally with `python -m http.server 8000` from the repo (the parent folder's `.claude/launch.json` has a "site" config for this). Browsers cache the JS and CSS hard; reload without cache after changes. Test a song page, English mode and the breve on desktop and phone after every change.
+The owner works on Windows in a clone of this repo and pushes to `main`. Open Claude Code in the repo root so this file is loaded. Commit messages are short and lowercase. Preview locally with `python -m http.server 8000` from the repo (`.claude/launch.json` in the repo has a "site" config for this). The album masters (MP3s) are not in the repo and must never be added: the repo is public and the songs are unreleased. Browsers cache the JS and CSS hard; reload without cache after changes. Test a song page, English mode and the breve on desktop and phone after every change.
