@@ -8,7 +8,7 @@
 // To preview another release locally, add ?release=full (or single1, single2)
 // to the address.
 (function(){
-  var RELEASE = 'single1';
+  var RELEASE = 'single2';
 
   var RELEASES = {
     single1: ['song-6'],              // Τα στεφανώματα
