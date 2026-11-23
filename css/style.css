@@ -196,6 +196,7 @@ sup.fn{font-size:.68em;line-height:0;margin-left:.05em}
 sup.fn a{text-decoration:none;color:var(--accent);font-weight:700}
 .notes{margin:2.5rem 0 0;padding:1.2rem 0 0 1.4rem;border-top:1px solid var(--head);font-size:.92rem;color:var(--muted);line-height:1.45}
 .notes li{margin:0 0 .45rem}
+.notes .fn-back{text-decoration:none;color:var(--accent);font-weight:700;padding:0 .2em}
 .notes li::marker{color:var(--accent);font-weight:700}
 .pager{display:flex;justify-content:space-between;gap:1rem;margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule)}
 .pn{text-decoration:none;font-weight:700;color:var(--accent)}

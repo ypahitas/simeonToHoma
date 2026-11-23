@@ -6,8 +6,8 @@
   var root = document.documentElement;
   var LANGS = ['el', 'en'];
   var STR = {
-    el: { all: 'Όλα τα τραγούδια', prev: 'Προηγούμενο', next: 'Επόμενο', sources: 'Πηγές', note: 'σημείωση ' },
-    en: { all: 'All songs', prev: 'Previous', next: 'Next', sources: 'Sources', note: 'note ' }
+    el: { all: 'Όλα τα τραγούδια', prev: 'Προηγούμενο', next: 'Επόμενο', sources: 'Πηγές', note: 'σημείωση ', back: 'Πίσω στο κείμενο' },
+    en: { all: 'All songs', prev: 'Previous', next: 'Next', sources: 'Sources', note: 'note ', back: 'Back to the text' }
   };
 
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -33,10 +33,16 @@
 
   function withNotes(text, id, l, used){
     return fmt(text).replace(/\[\^(\d+)\]/g, function(m, n){
-      if (used.indexOf(n) < 0) used.push(n);
-      var a = id+'-fn'+n+(l==='en'?'-en':'');
-      return '<sup class="fn"><a href="#'+a+'" aria-label="'+STR[l].note+n+'">'+n+'</a></sup>';
+      var suf = l==='en'?'-en':'';
+      // the first marker of each note gets an id, so the note can link back to it
+      var ref = used.indexOf(n) < 0 ? ' id="'+id+'-fnref'+n+suf+'"' : '';
+      if (ref) used.push(n);
+      return '<sup class="fn"'+ref+'><a href="#'+id+'-fn'+n+suf+'" aria-label="'+STR[l].note+n+'">'+n+'</a></sup>';
     });
+  }
+  // ↩ at the end of a note: back to where the reader was (the note's first marker)
+  function backLink(l, href){
+    return ' <a class="fn-back" href="#'+href+'" aria-label="'+STR[l].back+'" title="'+STR[l].back+'">↩</a>';
   }
 
   // Ordinals as in the booklet: 1ο, 3η, 1st, 2nd with the ending raised.
@@ -113,7 +119,8 @@
     if (!used.length) return '';
     return '<ol class="notes">'+used.map(function(n){
       var t = (own && own[n]) || '';
-      return '<li id="'+id+'-fn'+n+(l==='en'?'-en':'')+'" value="'+n+'">'+linkify(fmt(t))+'</li>';
+      var suf = l==='en'?'-en':'';
+      return '<li id="'+id+'-fn'+n+suf+'" value="'+n+'">'+linkify(fmt(t))+backLink(l, id+'-fnref'+n+suf)+'</li>';
     }).join('')+'</ol>';
   }
 
@@ -125,15 +132,16 @@
     var suf = l === 'en' ? '-en' : '';
     return lines.map(function(ln){
       return fmt(ln).replace(/\[\^(\d+)\]/g, function(m, n){
-        if (used.indexOf(n) < 0) used.push(n);
-        return '<sup class="fn" lang="'+l+'"><a href="#'+id+'-lfn'+n+suf+'" aria-label="'+STR[l].note+n+'">'+n+'</a></sup>';
+        var ref = used.indexOf(n) < 0 ? ' id="'+id+'-lfnref'+n+suf+'"' : '';
+        if (ref) used.push(n);
+        return '<sup class="fn" lang="'+l+'"'+ref+'><a href="#'+id+'-lfn'+n+suf+'" aria-label="'+STR[l].note+n+'">'+n+'</a></sup>';
       });
     }).join('<br>');
   }
   function lyricNotes(id, l, used, own){
     var suf = l === 'en' ? '-en' : '';
     return used.length ? '<ol class="notes" lang="'+l+'">'+used.map(function(n){
-      return '<li id="'+id+'-lfn'+n+suf+'" value="'+n+'">'+fmt(own[n]||'')+'</li>';
+      return '<li id="'+id+'-lfn'+n+suf+'" value="'+n+'">'+fmt(own[n]||'')+backLink(l, id+'-lfnref'+n+suf)+'</li>';
     }).join('')+'</ol>' : '';
   }
   function lyrics(id){
