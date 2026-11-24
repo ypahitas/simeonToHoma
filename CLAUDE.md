@@ -90,7 +90,7 @@ History of attempts:
 - **Caption differences** between the photo index and the booklet: photo 23 (Μαργαρίτα is "δεξιά"/"right", as in the booklet; owner confirmed 14 Nov), photo 17 ("Μαζί με" vs "Με"). The interview-section subtitle fixes the booklet's misspelling "συνεντέυξεις".
 - **English spellings** follow the translator and sometimes differ from captions or credits (e.g. "Pittyris" in the text, "Pittiris" in captions; "Nicoletta Demetriou" vs Greek "Νικολέττα Δημητρίου").
 - The ornaments in `images/ornaments/` are not used yet; they could replace or vary the two section ornaments.
-- **Second single:** song 12 «Φωνή Κοτροφίσιμη», live since 23 Nov (`RELEASE = 'single2'`). The Spotify/YouTube links in `LISTEN_LINKS` in `js/site.js` still point to the first single; replace them when the owner sends the new ones. The "more coming" wording (Greek and English) is Claude's; the owner may want to change it.
+- **Second single:** song 12 «Φωνή Κοτροφίσιμη», live since 23 Nov (`RELEASE = 'single2'`). `LISTEN_LINKS` in `js/site.js` point to the Spotify artist page and the YouTube playlist (24 Nov, tracking parameters stripped). The "more coming" wording (Greek and English) is Claude's; the owner may want to change it.
 - Social-preview (Open Graph) tags (probably different per release) once the domain is known; a desktop TTF of Alegreya Choman for the designer's InDesign work.
 
 ## Workflow
