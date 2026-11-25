@@ -15,10 +15,12 @@
   // font positions it over the letter itself. Never wrap it in its own element,
   // or the letter+mark cluster splits and the mark floats.
   // Escape, then turn the data's {i}…{/i} italics (used in the English) into <em>
-  // and its cross-references {a song-N}…{/a} (they replace the booklet's page numbers) into links.
+  // and its cross-references {a song-N}…{/a} (they replace the booklet's page numbers) and
+  // external links {a https://…}…{/a} into links.
   function fmt(s){
     return ordinals(esc(s)).replace(/\{i\}/g, '<em>').replace(/\{\/i\}/g, '</em>')
-      .replace(/\{a ([\w-]+)\}/g, '<a class="xref" href="#$1">').replace(/\{\/a\}/g, '</a>');
+      .replace(/\{a ([\w-]+)\}/g, '<a class="xref" href="#$1">')
+      .replace(/\{a (https?:\/\/[^\s}]+)\}/g, '<a class="xref" href="$1" target="_blank" rel="noopener">').replace(/\{\/a\}/g, '</a>');
   }
   function linkify(h){ return h.replace(/https?:\/\/[^\s<]+/g, function(u){ return '<a href="'+u+'" rel="noopener">'+u+'</a>'; }); }
   function both(el, en){ return '<span lang="el">'+esc(el)+'</span><span lang="en">'+esc(en)+'</span>'; }
