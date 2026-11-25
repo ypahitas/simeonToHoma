@@ -247,7 +247,7 @@ window.__ALBUM_DATA__ = {
     "body": [
      {
       "type": "p",
-      "text": "Ο Θεόδουλος Καλλίνικος εκατέγραψεν στο βιβλίον του Κυπριακή λαϊκή μούσα (1951) τούντο τραούδιν σε βυζαντινήν παρασημαντικήν τζ̆αι δυτικήν μουσικήν σημειογραφίαν, με τον τίτλον «Συρτός Παφίτικος», όπως το άκουσεν το 1935 που τον φκιολάρην Αντώνην Χατζ̆ηαχιλλέως (περισσότερα για τον Καλλίνικον στες σημειώσεις του τραουθκιού {a song-8}Η Λενού{/a}). Παρόλον που εν ηχογραφήθηκεν ποττέ, τουλάχιστον εξ όσων γνωρίζω, θεωρώ ότι εν’ έναν θκιαμάντιν της κυπριακής μουσικής. Εχρησιμοποίησα ως βάσην τες μελωδικές γραμμές όπως τες έγραψεν ο Καλλίνικος, αλλά, με την μέθοδον του περιορισμένου αυτοσχεδιασμού, εδιασκεύασα το όπως έκαμνεν νόημαν στον δικόν μου νουν. Στους στίχους επρόσθεσα, σε τζ̆είνα που εκατέγραψεν ο Καλλίνικος, θκυο πολλά αγαπημένα ολιγόστιχα που θκυο Παραλιμνίτες τραουδιστές[^1] στην ίδιαν θεματικήν ενότηταν: του παράφορου πάθους που γεννά παραφροσύνην, όταν χαρτώννουν την αγαπημένην του ποιητή με κάποιον τρίτον."
+      "text": "Ο Θεόδουλος Καλλίνικος εκατέγραψεν στο βιβλίον του Κυπριακή λαϊκή μούσα (1951) τούντο τραούδιν σε βυζαντινήν παρασημαντικήν τζ̆αι δυτικήν μουσικήν σημειογραφίαν, με τον τίτλον «Συρτός Παφίτικος», όπως το άκουσεν το 1935 που τον φκιολάρην Αντώνην Χατζ̆ηαχιλλέως (περισσότερα για τον Καλλίνικον στες σημειώσεις του τραουθκιού {a song-8}Η Λενού{/a}). Ήμουν με την ιδέαν ότι τούτον το τραούδιν εν ηχογραφήθηκεν πριν την διασκευήν μας, αφού όσον το έψαξα εν ήβρα κάτι. Όταν εκυκλοφορήσαμεν το τραούδιν ψηφιακά, έπιασεν με τηλέφωνον ο Μιχάλης Ττερλικκάς τζ̆αι είπεν μου πως υπάρχει ηχογράφηση του «Συρτού Παφίτικου» που τον Καλλίνικον, που έγινεν στο ΡΙΚ. Η ηχογράφηση τούτη δυστυχώς έννεν δημόσια διαθέσιμη στον Ψηφιακόν Ηρόδοτον – όπως εν’ «{a song-8}Η Λενού{/a}» για παράδειγμαν. Τούτον εγείρει έναν θέμαν που με απασχόλησεν τζ̆αι με απασχολεί, σχετικά με την ανάγκην συστηματοποίησης, ψηφιοποίησης τζ̆αι δημοσιοποίησης των αρχείων κυπριακής μουσικής, πάντα με αναγνώρισην στον εκάστοτε ιδιοχτήτην του αρχείου τζ̆αι σε όποιον έκαμεν την καταγραφήν. Η Νικολέττα Δημητρίου εξεκίνησεν να κάμνει τούντην σοβαρήν δουλειάν μέσω του Αρχείου Κυπριακής Μουσικής τζ̆αι ελπίζω ν’ ακολουθήσουν τζ̆’ άλλοι. Όσον αφορά την διασκευήν μας, εχρησιμοποίησα ως βάσην τες μελωδικές γραμμές όπως τες έγραψεν ο Καλλίνικος, αλλά, με την μέθοδον του περιορισμένου αυτοσχεδιασμού, εδιασκεύασα το όπως έκαμνεν νόημαν στον δικόν μου νουν. Στους στίχους επρόσθεσα, σε τζ̆είνα που εκατέγραψεν ο Καλλίνικος, θκυο πολλά αγαπημένα ολιγόστιχα που θκυο Παραλιμνίτες τραουδιστές[^1] στην ίδιαν θεματικήν ενότηταν: του παράφορου πάθους που γεννά παραφροσύνην, όταν χαρτώννουν την αγαπημένην του ποιητή με κάποιον τρίτον."
      },
      {
       "type": "heading",
@@ -1396,7 +1396,7 @@ window.__ALBUM_DATA__ = {
     "body": [
      {
       "type": "p",
-      "text": "Theodoulos Kallinikos transcribed this song in his book Cypriot Folk Muse (1951), using both Byzantine and Western musical notation, under the title “Paphian Syrtos” as he heard it in 1935 from the violinist Antonis Hadjiachilleos (more on Kallinikos in the notes for the song {a song-8}Lenou{/a}). Although, to the best of my knowledge, it was never recorded, I consider it as one of the gems of Cypriot music. I used Kallinikos’ transcription of the melodic lines as my starting point, but, following a method of limited improvisation, I adapted them in a way that made sense to me. For the lyrics, in addition to those recorded by Kallinikos, I added two short verses from two poets and singers[^3] from Paralimni in the same thematic: the overwhelming passion that drives the poet to madness when the poet’s beloved is being married to someone else."
+      "text": "Theodoulos Kallinikos transcribed this song in his book Cypriot Folk Muse (1951), using both Byzantine and Western musical notation, under the title “Syrtos from Paphos” as he heard it in 1935 from the violinist Antonis Hadjiachilleos (more on Kallinikos in the notes for the song {a song-8}Lenou{/a}). I was under the impression that this song had not been previously recorded as, despite my best efforts, I had not managed to find a publicly available recording. After we released the song digitally, Michalis Tterlikkas called and informed me that a recording of “Syrtos from Paphos” by Kallinikos exists and was made at the Cyprus Broadcasting Corporation (RIK). Unfortunately, this recording is not publicly accessible. This raises an issue that has troubled me quite a lot: the need for the systematic cataloguing, digitisation and public availability of Cypriot music archives, always with respect for and proper acknowledgement of the owner of each archive and the person who made the recording. Nicoletta Demetriou has started doing this through the Cypriot Music Archive and I hope others will follow in her footsteps. As for our arrangement, I used Kallinikos’ transcription of the melodic lines as my starting point, but, following a method of limited improvisation, I adapted them in a way that made sense to me. For the lyrics, in addition to those recorded by Kallinikos, I added two short verses from two poets and singers[^3] from Paralimni in the same thematic: the overwhelming passion that drives the poet to madness when the poet’s beloved is being married to someone else."
      },
      {
       "type": "heading",
@@ -2465,7 +2465,8 @@ window.__ALBUM_DATA__ = {
    "id": "song-5",
    "n": 5,
    "title_el": "Μανές Μπάλος Πρώτος",
-   "title_en": "Manes Balos A"
+   "title_en": "Manes Balos A",
+   "orn": "branches"
   },
   {
    "id": "song-6",
@@ -2478,7 +2479,8 @@ window.__ALBUM_DATA__ = {
    "id": "song-7",
    "n": 7,
    "title_el": "Καρπασιτού του Τζ̆ιαννή (Φωνή Κωμήτισσα)",
-   "title_en": "Tziannis’ Karpasitou (Komitissa Tune)"
+   "title_en": "Tziannis’ Karpasitou (Komitissa Tune)",
+   "orn": "star-flower"
   },
   {
    "id": "song-8",

@@ -162,7 +162,7 @@ main{display:block}
 .credits ul{list-style:none;margin:0;padding:0;color:var(--accent);font-size:1rem;line-height:1.4}
 .credits li{margin:0 0 .7rem}
 .credits .k{font-weight:700}
-.credits sup.ord{font-size:.68em;line-height:0;margin-left:.04em}
+sup.ord{font-size:.68em;line-height:0;margin-left:.04em}
 .text p{margin:0 0 1.1rem;hyphens:auto}
 /* running text is justified, as in the booklet (lyrics, verse and sources are not) */
 .text > div > p:not(.verse){text-align:justify}

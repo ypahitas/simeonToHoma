@@ -17,7 +17,7 @@
   // Escape, then turn the data's {i}…{/i} italics (used in the English) into <em>
   // and its cross-references {a song-N}…{/a} (they replace the booklet's page numbers) into links.
   function fmt(s){
-    return esc(s).replace(/\{i\}/g, '<em>').replace(/\{\/i\}/g, '</em>')
+    return ordinals(esc(s)).replace(/\{i\}/g, '<em>').replace(/\{\/i\}/g, '</em>')
       .replace(/\{a ([\w-]+)\}/g, '<a class="xref" href="#$1">').replace(/\{\/a\}/g, '</a>');
   }
   function linkify(h){ return h.replace(/https?:\/\/[^\s<]+/g, function(u){ return '<a href="'+u+'" rel="noopener">'+u+'</a>'; }); }
@@ -45,9 +45,10 @@
     return ' <a class="fn-back" href="#'+href+'" aria-label="'+STR[l].back+'" title="'+STR[l].back+'">↩</a>';
   }
 
-  // Ordinals as in the booklet: 1ο, 3η, 1st, 2nd with the ending raised.
+  // Ordinals as in the booklet: 1ο, 3η, 4ον, 1st, 2nd with the ending raised.
+  // Used in credits and, through fmt(), in all song text (owner, 25 Nov).
   function ordinals(h){
-    return h.replace(/(\d)(ο|η|ον|ης|st|nd|rd|th)(?![A-Za-zͰ-Ͽἀ-῿])/g, '$1<sup class="ord">$2</sup>');
+    return h.replace(/(\d)(ον|ου|ος|ην|ης|ο|η|st|nd|rd|th)(?![A-Za-zͰ-Ͽἀ-῿])/g, '$1<sup class="ord">$2</sup>');
   }
 
   // Designer's rule for credits (18 Nov): a line may not break inside a person's
