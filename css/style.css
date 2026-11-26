@@ -223,7 +223,7 @@ html.partial .contact .orn{--m:url("../images/ornament-flower.png")}
 .legend{margin:1rem 0 0;font-size:.92rem;font-style:italic;color:var(--muted)}
 
 /* ---------- thanks ---------- */
-.dedication{font-style:italic;font-size:1.2rem;color:var(--muted);margin:0 0 2.5rem}
+.dedication{font-style:bold;font-style:italic;text-align:right;font-size:1.2rem;color:var(--muted);margin:0 0 2.5rem}
 
 /* ---------- interview photos ---------- */
 .photos .lead{font-style:italic;color:var(--muted);margin:-1rem 0 2.2rem}
