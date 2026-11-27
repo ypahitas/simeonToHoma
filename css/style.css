@@ -214,7 +214,8 @@ sup.fn a{text-decoration:none;color:var(--accent);font-weight:700}
 .legend{margin:1rem 0 0;font-size:.92rem;font-style:italic;color:var(--muted)}
 
 /* ---------- thanks ---------- */
-.dedication{font-weight:bold;font-style:italic;text-align:right;font-size:1.3rem;color:var(--muted);margin:0 0 1.5rem}
+/* right-aligned in the intro column, between "Ο δίσκος" and "Εισαγωγικό σημείωμα" (Symeon, 27 Nov) */
+.prose .dedication{font-weight:bold;font-style:italic;text-align:right;hyphens:manual;font-size:1.3rem;color:var(--muted);margin:-.4rem 0 1.8rem}
 
 /* ---------- interview photos ---------- */
 .photos .lead{font-style:italic;color:var(--muted);margin:-1rem 0 2.2rem}
