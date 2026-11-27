@@ -92,7 +92,7 @@ History of attempts:
 - **Caption differences** between the photo index and the booklet: photo 23 (Μαργαρίτα is "δεξιά"/"right", as in the booklet; owner confirmed 14 Nov), photo 17 ("Μαζί με" vs "Με"). The interview-section subtitle fixes the booklet's misspelling "συνεντέυξεις".
 - **English spellings** follow the translator and sometimes differ from captions or credits (e.g. "Pittyris" in the text, "Pittiris" in captions; "Nicoletta Demetriou" vs Greek "Νικολέττα Δημητρίου").
 - The ornaments in `images/ornaments/` are not used yet; they could replace or vary the two section ornaments.
-- **Listen links:** `LISTEN_LINKS` in `js/site.js` still point to the Spotify artist page and the YouTube playlist; switch Spotify to the album page if the owner wants.
+- **Listen links:** `LISTEN_LINKS` in `js/site.js` point to the album on Spotify (27 Nov) and the YouTube playlist. Strip the `?si=` share parameter from any link the owner sends.
 - Social-preview (Open Graph) tags once the domain is known; a desktop TTF of Alegreya Choman for the designer's InDesign work.
 
 ## Workflow
