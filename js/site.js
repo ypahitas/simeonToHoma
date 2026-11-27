@@ -27,8 +27,8 @@
 
   // Spotify / YouTube icons (by the Songs heading and in the footer).
   // An empty link leaves its icon showing but going nowhere.
-  // Now (single2): the artist page on Spotify and the YouTube playlist.
-  // For the full album: the album on Spotify and the YouTube playlist.
+  // Now: the artist page on Spotify and the YouTube playlist.
+  // Could become the album page on Spotify once it is live.
   var LISTEN_LINKS = {
     spotify: 'https://open.spotify.com/artist/5ABnP08eckCciAcr5Ixyu2',
     youtube: 'https://www.youtube.com/playlist?list=PLA_yj3qxenPI'

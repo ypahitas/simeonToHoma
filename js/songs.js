@@ -29,9 +29,7 @@
   var DISC1 = 8;
   function disc(m){ return m.n > DISC1 ? 2 : 1; }
   function discNo(m){ return m.n > DISC1 ? m.n - DISC1 : m.n; }
-  // Only the songs of the current release (js/release.js) are built.
-  var REL = window.__RELEASE__ || {};
-  var LIST = DATA.meta.filter(function(m){ return !REL.songs || REL.songs.indexOf(m.id) > -1; });
+  var LIST = DATA.meta;
 
   function withNotes(text, id, l, used){
     return fmt(text).replace(/\[\^(\d+)\]/g, function(m, n){
@@ -164,14 +162,12 @@
       lyricNotes(id, 'en', usedEn, (DATA.lyricNotesEn && DATA.lyricNotesEn[id]) || {})+'</div>';
   }
 
-  // k: position in LIST, so the pager only links released songs
+  // k: position in LIST
   function pager(k){
     var prev = LIST[k-1], next = LIST[k+1];
     return '<nav class="pager" aria-label="tracks">'+
       (prev ? '<a class="pn prev" href="#'+prev.id+'">'+both(prev.title_el, prev.title_en)+'</a>' : '<span></span>')+
-      (next ? '<a class="pn next" href="#'+next.id+'">'+both(next.title_el, next.title_en)+'</a>'
-        // a single release: say more is coming where the next song would be
-        : REL.songs ? '<span class="pn soon">'+both('Έρχονται κι άλλα τραγούδια', 'More songs coming soon')+'</span>' : '<span></span>')+
+      (next ? '<a class="pn next" href="#'+next.id+'">'+both(next.title_el, next.title_en)+'</a>' : '<span></span>')+
       '</nav>';
   }
 

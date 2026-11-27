@@ -202,15 +202,6 @@ sup.fn a{text-decoration:none;color:var(--accent);font-weight:700}
 .pn{text-decoration:none;font-weight:700;color:var(--accent)}
 .pn.prev::before{content:"‹ "} .pn.next{text-align:right} .pn.next::after{content:" ›"}
 
-/* ---------- single releases (js/release.js) ---------- */
-html.partial [data-full]{display:none!important}
-p.soon{display:none}
-/* styled like the release-date note in Pre-order: bold, with an orange rule on the left */
-html.partial p.soon{display:block;margin:2rem 0 0;padding:.55rem 0 .55rem 1rem;border-left:3px solid var(--accent);font-weight:700;color:var(--ink)}
-.pn.soon{font-weight:400;font-style:italic;text-align:right}
-html.partial .buy .orn{--m:url("../images/ornament-leaves.png")}  /* follows Songs, which has the flower */
-html.partial .contact .orn{--m:url("../images/ornament-flower.png")}
-
 /* ---------- contributors ---------- */
 .people{list-style:none;margin:0;padding:0;display:grid;gap:1.1rem 2.5rem;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr))}
 .people li{line-height:1.35}
