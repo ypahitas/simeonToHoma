@@ -237,6 +237,7 @@ sup.fn a{text-decoration:none;color:var(--accent);font-weight:700}
 
 /* ---------- contact ---------- */
 .contact .mail{font-size:clamp(1.4rem,4vw,2.1rem);color:var(--head);text-decoration-thickness:1px;text-underline-offset:.2em;overflow-wrap:anywhere}
+.contact .social{margin-top:1.8rem}
 
 footer{background:var(--ochre);color:var(--cream);padding:2rem 1.25rem}
 .foot-in{max-width:72rem;margin:0 auto;display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:baseline;justify-content:space-between}
