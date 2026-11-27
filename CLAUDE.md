@@ -56,7 +56,7 @@ History of attempts:
 - **Never wrap U+0306 in its own element.** `songs.js` only escapes text.
 - **Every text font must be "Alegreya Choman"** (`var(--serif)`).
 - Adding a weight or letter: download `Alegreya[wght].ttf` and `Alegreya-Italic[wght].ttf` from https://github.com/google/fonts/tree/main/ofl/alegreya into `tools/source/`, edit `make_font.py`, then `pip install fonttools brotli` and `cd tools && python3 make_font.py`.
-- **Still to verify:** confirmed in Chrome only. Check Safari on iPhone and Firefox.
+- **Browsers:** confirmed in Chrome and in Safari on iPhone (owner, 27 Nov). Firefox not checked yet.
 
 **Extracting Greek from the PDF:** use PyMuPDF (`import fitz`); `pdftotext` drops breves. Known PDF quirks: some breves come out as a spacing breve U+02D8 with stray spaces ("Χατ ζ˘ ήκυριακου"), one as a precomposed ῐ on the wrong letter, a few `τζ’` lack the breve, soft hyphens (U+00AD) mark line-end hyphenation, and footnote markers are small-size digit spans. The 12 Nov import cleaned all of these; the scripts were one-off and are not in the repo.
 
@@ -94,7 +94,8 @@ History of attempts:
 - **English spellings** follow the translator and sometimes differ from captions or credits (e.g. "Pittyris" in the text, "Pittiris" in captions; "Nicoletta Demetriou" vs Greek "Νικολέττα Δημητρίου").
 - The ornaments in `images/ornaments/` are not used yet; they could replace or vary the two section ornaments.
 - **Listen links:** `LISTEN_LINKS` in `js/site.js` point to the album on Spotify (27 Nov) and the YouTube playlist. Strip the `?si=` share parameter from any link the owner sends.
-- Social-preview (Open Graph) tags once the domain is known; a desktop TTF of Alegreya Choman for the designer's InDesign work.
+- **Social preview:** Open Graph tags in `index.html` use `https://tohoman.eu/` and `images/cover.jpg` (portrait, so Facebook and WhatsApp show it cropped). The designer's 3000px Spotify square would preview better; ask her for a resized copy.
+- A desktop TTF of Alegreya Choman for the designer's InDesign work.
 
 ## Workflow
 
