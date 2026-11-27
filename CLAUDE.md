@@ -94,7 +94,7 @@ History of attempts:
 - **English spellings** follow the translator and sometimes differ from captions or credits (e.g. "Pittyris" in the text, "Pittiris" in captions; "Nicoletta Demetriou" vs Greek "Νικολέττα Δημητρίου").
 - The ornaments in `images/ornaments/` are not used yet; they could replace or vary the two section ornaments.
 - **Listen links:** `LISTEN_LINKS` in `js/site.js` point to the album on Spotify (27 Nov) and the YouTube playlist. Strip the `?si=` share parameter from any link the owner sends.
-- **Social preview:** Open Graph tags in `index.html` use `https://tohoman.eu/` and `images/cover.jpg` (portrait, so Facebook and WhatsApp show it cropped). The designer's 3000px Spotify square would preview better; ask her for a resized copy.
+- **Social preview:** Open Graph tags in `index.html` use `https://tohoman.eu/` and `images/og.jpg` (27 Nov): the owner's wide banner (`banner.jpg`, 1709×650, kept in the parent folder, not in the repo) scaled to 1200 wide and padded above and below with its own ochre (rgb 187,117,48) to 1200×630, so Facebook and WhatsApp show it uncropped. Made with Pillow; remake it the same way if the banner changes. `cover.jpg` stays the album image in the structured data.
 - A desktop TTF of Alegreya Choman for the designer's InDesign work.
 
 ## Workflow
