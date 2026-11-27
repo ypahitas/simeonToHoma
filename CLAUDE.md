@@ -95,7 +95,7 @@ History of attempts:
 - **English spellings** follow the translator and sometimes differ from captions or credits (e.g. "Pittyris" in the text, "Pittiris" in captions; "Nicoletta Demetriou" vs Greek "Νικολέττα Δημητρίου").
 - The ornaments in `images/ornaments/` are not used yet; they could replace or vary the two section ornaments.
 - **Listen links:** `LISTEN_LINKS` in `js/site.js` point to the album on Spotify (27 Nov) and the YouTube playlist. Strip the `?si=` share parameter from any link the owner sends.
-- **Social links** (27 Nov): Facebook (`facebook.com/simon.mercouris`) and Instagram (`instagram.com/smercour`) icons under the email in Επικοινωνία, labelled «Ακολουθήστε / Follow». Plain links in `index.html` (not `LISTEN_LINKS`), styled like the listen icons (`.listen.social`).
+- **Social links** (27 Nov): Facebook (`facebook.com/simon.mercouris`) and Instagram (`instagram.com/smercour`) icons under the email in Επικοινωνία, labelled «Ακολουθήστε / Follow». Plain links in `index.html` (not `LISTEN_LINKS`), styled like the listen icons (`.listen.social`), but a little smaller (22px instead of 26px).
 - **Social preview:** Open Graph tags in `index.html` use `https://tohoman.eu/` and `images/og.jpg` (27 Nov): the owner's wide banner (`banner.jpg`, 1709×650, kept in the parent folder, not in the repo) scaled to 1200 wide and padded above and below with its own ochre (rgb 187,117,48) to 1200×630, so Facebook and WhatsApp show it uncropped. Made with Pillow; remake it the same way if the banner changes. `cover.jpg` stays the album image in the structured data.
 - A desktop TTF of Alegreya Choman for the designer's InDesign work.
 
